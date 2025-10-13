@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Pure Python AI Counseling System
 
 A dynamic, laptop-optimized AI counseling system that provides personalized mental health recommendations using pure Python machine learning with online learning capabilities - no external ML libraries required!
@@ -171,3 +172,6 @@ The system will continuously learn and adapt to provide better recommendations o
 ---
 
 **Built with ❤️ using pure Python machine learning**
+=======
+# CrisisCare ML Project
+>>>>>>> 8d9cee2f34f4059a6726f0e1c17f16cbc20e4586
