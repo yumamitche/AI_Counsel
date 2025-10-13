@@ -225,6 +225,10 @@ def submit_form():
             'support_system': sanitize_input(form_data.get('support_system', ''))
         }
         
+        # Compute emotional score early and include in user_responses for ML personalization
+        emotional_score = calculate_emotional_score(user_responses)
+        user_responses['emotional_score'] = emotional_score
+
         # Store in session for analysis
         session['user_responses'] = user_responses
         
@@ -243,9 +247,6 @@ def submit_form():
                 'ml_predictions': {},
                 'data_insights': {'error': 'AI system unavailable'}
             }
-        
-        # Calculate emotional score
-        emotional_score = calculate_emotional_score(user_responses)
         
         # Get analysis
         if counseling_ai:

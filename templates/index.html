@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Counseling Assistant</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,9 +15,37 @@
             box-sizing: border-box;
         }
 
+        /* Dark-blue scrollbars (WebKit + Firefox) */
+        :root {
+            --scrollbar-thumb: #1e3a8a; /* dark blue */
+            --scrollbar-thumb-hover: #0b3d91; /* deeper navy */
+            --scrollbar-accent: #0ea5e9; /* sky blue */
+            --scrollbar-track: #eaf3ff; /* very light blue */
+        }
+
+        /* Firefox */
+        html { scrollbar-width: thin; scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track); }
+        .modal-body { scrollbar-width: thin; scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track); }
+
+        /* WebKit (Chrome, Edge, Safari) */
+        ::-webkit-scrollbar { width: 12px; height: 12px; }
+        ::-webkit-scrollbar-track { background: var(--scrollbar-track); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--scrollbar-thumb), var(--scrollbar-accent));
+            border-radius: 10px; border: 2px solid var(--scrollbar-track);
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+        }
+        ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--scrollbar-thumb-hover), var(--scrollbar-accent)); }
+        ::-webkit-scrollbar-corner { background: transparent; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-size: 16px;
+            line-height: 1.65;
+            background: linear-gradient(135deg, #0b3d91 0%, #38bdf8 100%);
             min-height: 100vh;
             color: #333;
         }
@@ -32,14 +63,16 @@
         }
 
         .header h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 0.2px;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 1px 2px 3px rgba(0,0,0,0.25);
         }
 
         .header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            font-size: 1.05rem;
+            opacity: 0.92;
         }
 
         .form-container {
@@ -55,7 +88,7 @@
         }
 
         .form-section h3 {
-            color: #667eea;
+            color: #0ea5e9;
             margin-bottom: 15px;
             font-size: 1.3rem;
             border-bottom: 2px solid #f0f0f0;
@@ -63,29 +96,34 @@
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: #555;
+            color: #1f2937;
+            letter-spacing: 0.1px;
         }
 
         .form-control {
             width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e1e5e9;
-            border-radius: 10px;
+            padding: 14px 16px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 12px;
             font-size: 16px;
-            transition: all 0.3s ease;
+            line-height: 1.5;
+            transition: all 0.2s ease;
+            background: #ffffff;
         }
+
+        .form-control::placeholder { color: #9ca3af; opacity: 1; }
 
         .form-control:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.16);
         }
 
         .scale-input {
@@ -112,37 +150,64 @@
 
         .rubric-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(51,65,85,0.08); }
 
-        /* Modal styles for rubrics */
+        /* Modal styles for rubrics (polished, formal) */
         .modal {
             display: none; /* Hidden by default */
             position: fixed;
             z-index: 2000;
-            left: 0;
-            top: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.45);
+            background: radial-gradient(120% 120% at 50% 0%, rgba(2,6,23,0.55) 0%, rgba(2,6,23,0.35) 50%, rgba(2,6,23,0.45) 100%);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 24px;
         }
 
         .modal-content {
-            background: #fff;
-            border-radius: 12px;
-            max-width: 720px;
+            background: #ffffff;
+            border-radius: 16px;
+            max-width: 760px;
             width: 100%;
-            padding: 20px 26px;
-            box-shadow: 0 30px 60px rgba(17,24,39,0.18);
+            padding: 0; /* use internal sections for spacing */
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 30px 70px rgba(2,6,23,0.25);
+            transform: translateY(8px) scale(0.985);
+            opacity: 0;
+            transition: opacity .18s ease, transform .18s ease;
         }
 
-        .modal-header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
-        .modal-title { font-weight:700; color:#1f2937; font-size:1.05rem; }
-        .modal-close { background:transparent; border:none; font-size:1.2rem; cursor:pointer; color:#6b7280; }
-        .rubric-list { list-style:none; margin-top:14px; padding-left:0; }
-        .rubric-list li { padding:10px 12px; border-radius:8px; margin-bottom:8px; background:#f8fafc; border:1px solid #eef2ff; color:#111827; }
-        .rubric-note { font-size:0.85rem; color:#6b7280; margin-top:6px; }
+        .modal.open .modal-content { opacity: 1; transform: translateY(0) scale(1); }
+
+        .modal-header {
+            display:flex; align-items:center; justify-content:space-between; gap:12px;
+            padding: 18px 22px; border-bottom: 1px solid #eef2ff; background: linear-gradient(180deg,#f8fbff, #ffffff 60%);
+            border-top-left-radius: 16px; border-top-right-radius: 16px;
+        }
+        .modal-title { font-weight:800; color:#0f172a; font-size:1.05rem; letter-spacing: .2px; display:flex; align-items:center; gap:10px; }
+        .modal-title i { color:#0ea5e9; }
+        .modal-close { background:#ffffff; border:1px solid #e5e7eb; width:34px; height:34px; border-radius:10px; font-size:1.1rem; cursor:pointer; color:#475569; display:inline-flex; align-items:center; justify-content:center; transition: all .15s ease; }
+        .modal-close:hover { background:#f8fafc; box-shadow: 0 6px 12px rgba(2,6,23,0.08); color:#0f172a; }
+        .rubric-note { font-size:0.85rem; color:#6b7280; margin-top:4px; }
+
+        .modal-body { padding: 18px 22px; max-height: 65vh; overflow: auto; }
+        .modal-footer { padding: 14px 22px 20px; border-top: 1px solid #eef2ff; display:flex; align-items:center; justify-content:flex-end; gap:10px; }
+        .btn { background:#ffffff; border:1px solid #dfe6fb; color:#334155; padding:10px 16px; border-radius: 10px; font-weight:600; cursor:pointer; box-shadow: 0 4px 10px rgba(51,65,85,0.06); }
+        .btn.primary { background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%); color: #fff; border: none; }
+
+        /* Formal rubric list styling */
+        .rubric-list { list-style:none; margin-top:10px; padding-left:0; counter-reset: rubric; }
+        .rubric-list li { position: relative; padding:12px 12px 12px 46px; border-radius:10px; margin-bottom:10px; background:#f8fafc; border:1px solid #eef2ff; color:#111827; line-height:1.55; }
+        .rubric-list li::before {
+            counter-increment: rubric;
+            content: counter(rubric);
+            position:absolute; left:12px; top:50%; transform: translateY(-50%);
+            width: 28px; height: 28px; border-radius: 8px; display:inline-flex; align-items:center; justify-content:center;
+            background: linear-gradient(135deg,#1e3a8a,#0ea5e9); color:#fff; font-weight:800; font-size: .9rem; box-shadow: 0 4px 10px rgba(2,6,23,0.12);
+        }
 
         .scale-input input[type="range"] {
             flex: 1;
@@ -157,7 +222,7 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: #667eea;
+            background: #0ea5e9;
             cursor: pointer;
         }
 
@@ -165,19 +230,19 @@
             min-width: 30px;
             text-align: center;
             font-weight: bold;
-            color: #667eea;
+            color: #0ea5e9;
         }
 
         .submit-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
             color: white;
             border: none;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
+            padding: 16px 42px;
+            border-radius: 48px;
+            font-size: 17px;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             width: 100%;
             margin-top: 20px;
         }
@@ -250,17 +315,25 @@
         }
 
         .recommendations-section h4 {
-            color: #667eea;
+            color: #0ea5e9;
             margin-bottom: 15px;
             font-size: 1.2rem;
         }
 
         .recommendation-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            border-left: 4px solid #667eea;
+            background: #eaf3ff; /* light sky */
+            padding: 20px;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            border: 1px solid #dbeafe;
+            border-left: 4px solid #0ea5e9;
+            color: #0f172a;
+            box-shadow: 0 6px 14px rgba(2, 6, 23, 0.04);
+        }
+        .recommendation-item--featured {
+            background: #dbeafe; /* slightly deeper sky */
+            border: 1px solid #bfdbfe;
+            border-left-color: #1e3a8a; /* dark blue accent */
         }
 
         .technique-item {
@@ -313,19 +386,19 @@
         }
 
         /* Formal typography and paragraph alignment enhancements */
-        .form-container, .results-container { line-height: 1.55; }
-        .form-container textarea.form-control { font-family: "Georgia", "Times New Roman", serif; font-size: 15px; letter-spacing: 0.2px; }
+    .form-container, .results-container { line-height: 1.65; }
+    .form-container textarea.form-control { font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif; font-size: 16px; letter-spacing: 0.1px; }
         .form-section p.helper-text { font-size: 0.85rem; color: #666; margin-top: -5px; margin-bottom: 15px; font-style: italic; }
         .recommendation-item, .results-container p, .results-container div { text-align: justify; text-justify: inter-word; }
-        .recommendation-item { font-family: "Georgia", serif; font-size: 0.97rem; }
-        .formal-paragraph-card .recommendation-item { background: #f6f7fb; border: 1px solid #e0e4ec; border-left: 4px solid #667eea; color: #222; box-shadow: 0 4px 10px rgba(0,0,0,0.04); }
+    .recommendation-item { font-family: 'Inter', 'Segoe UI', Roboto, Arial, sans-serif; font-size: 1rem; }
+    .formal-paragraph-card .recommendation-item { background: #f6f9ff; border: 1px solid #e0edff; border-left: 4px solid #0ea5e9; color: #222; box-shadow: 0 4px 10px rgba(0,0,0,0.04); }
         .formal-heading { font-family: 'Segoe UI', Tahoma, sans-serif; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.85rem; color: #555; margin-bottom: 8px; }
         .paragraph-block { margin-bottom: 28px; }
         .paragraph-block:last-child { margin-bottom: 0; }
         .submit-toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 25px; }
-        .model-badge { background: linear-gradient(135deg,#4f5bd5,#962fbf); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; letter-spacing: 0.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+    .model-badge { background: linear-gradient(135deg,#1e3a8a,#0ea5e9); color: #fff; padding: 7px 16px; border-radius: 20px; font-size: 0.78rem; letter-spacing: 0.4px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
         .model-badge i { font-size: 0.85rem; }
-        .alignment-note { font-size: 0.7rem; color: #888; letter-spacing: 0.5px; margin-top: 4px; text-transform: uppercase; }
+    .alignment-note { font-size: 0.72rem; color: #757575; letter-spacing: 0.4px; margin-top: 4px; text-transform: uppercase; }
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -341,6 +414,51 @@
 
             .submit-toolbar { flex-direction: column; align-items: stretch; }
         }
+
+    /* VAWC compliant sections */
+    .tool-card { background:#ffffff; border:1px solid #e5e7eb; border-radius:12px; padding:14px; margin-bottom:12px; }
+    .tool-header { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:8px; }
+    .tool-header .name { font-weight:700; color:#1f2937; }
+    .tool-header .helper { font-size:0.8rem; color:#6b7280; }
+    .tool-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px; }
+    .tool-grid .form-group { margin-bottom:0; }
+    @media (max-width: 768px){ .tool-grid{ grid-template-columns:1fr; } }
+
+        /* ISO badge and terms styles */
+        .iso-badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            margin-left: 8px; padding: 2px 8px; border-radius: 12px;
+            font-size: 0.72rem; font-weight: 600; letter-spacing: 0.3px;
+            color: #0c4a6e; background: #e0f2fe; border: 1px solid #bae6fd;
+        }
+        .iso-badge i { color: #0ea5e9; font-size: 0.8rem; }
+        .label-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+        .label-note { font-size:0.8rem; color:#6b7280; font-style: italic; }
+
+        .terms-container {
+            margin-top: 10px; padding: 14px; border-radius: 10px;
+            background: #f8fafc; border: 1px solid #e5e7eb; color:#111827;
+        }
+        .terms-container label { display:flex; align-items:flex-start; gap:10px; cursor: pointer; }
+        .terms-actions { margin-top: 8px; display:flex; align-items:center; gap:10px; }
+    .link-btn { background: transparent; border: none; color: #4f46e5; cursor: pointer; font-weight: 600; padding: 0; }
+    .link-btn:hover { text-decoration: underline; }
+
+    /* Wizard (multi-step) styles */
+    .wizard-progress { display:flex; align-items:center; gap:8px; margin: 6px 0 16px 0; flex-wrap: wrap; }
+    .wizard-progress .step-label { font-size: 0.85rem; color:#6b7280; font-weight:600; margin-right: 8px; }
+    .wizard-progress .step-counter { font-size: 0.85rem; color:#374151; font-weight:600; margin-right: 8px; }
+    .wizard-progress .step-title { font-size: 0.92rem; color:#1f2937; font-weight:700; }
+    .wizard-progress .dots { display:flex; gap:8px; align-items:center; }
+    .progress-dot { width: 10px; height: 10px; border-radius: 50%; background: #e5e7eb; transition: transform 0.2s ease, background 0.2s ease; border: 1px solid #e0e7ff; }
+    .progress-dot.active { background: #0ea5e9; transform: scale(1.15); box-shadow: 0 0 0 3px rgba(14,165,233,0.12); }
+    .wizard-viewport { overflow:hidden; position: relative; border-radius: 12px; }
+    .wizard-track { display: flex; width: 100%; transition: transform 0.35s ease; will-change: transform; }
+    .form-step { min-width: 100%; padding: 2px 0; }
+    .wizard-footer { display:flex; align-items:center; justify-content: space-between; gap:12px; margin-top: 16px; }
+    .nav-btn { background:#fff; border:1px solid #dfe6fb; color:#334155; padding:10px 16px; border-radius: 10px; font-weight:600; cursor:pointer; box-shadow: 0 4px 10px rgba(51,65,85,0.06); }
+    .nav-btn[disabled] { opacity: 0.6; cursor: not-allowed; }
+    .nav-btn.primary { background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%); color: #fff; border: none; }
     </style>
 </head>
 <body>
@@ -352,17 +470,33 @@
 
         <div class="form-container">
             <form id="counselingForm">
-                <div class="form-section">
-                    <h3><i class="fas fa-heart"></i> Current State</h3>
-                    
-                    <div class="form-group">
-                        <label for="current_mood">How are you feeling right now?</label>
-                        <textarea class="form-control" id="current_mood" name="current_mood" rows="3" 
-                                  placeholder="Describe your current mood and feelings in detail. What emotions are you experiencing? What thoughts are going through your mind? The more specific you are, the better the AI can help you."></textarea>
-                    </div>
+                <!-- Wizard progress indicator -->
+                <div class="wizard-progress" id="wizardProgress" aria-hidden="false">
+                    <span class="step-label"><i class="fas fa-route"></i> Steps</span>
+                    <span class="step-counter" id="stepCounter"></span>
+                    <span class="step-title" id="stepTitle"></span>
+                    <div class="dots" id="progressDots"></div>
+                </div>
 
+                <!-- Wizard viewport/track for horizontal slides -->
+                <div class="wizard-viewport" id="wizardViewport">
+                    <div class="wizard-track" id="wizardTrack">
+                <div class="form-section form-step" data-title="Current feelings">
                     <div class="form-group">
-                        <label for="stress_level">Stress Level (1-10)</label>
+                        <div class="label-row">
+                            <label for="current_mood">How are you feeling today, and do you have any safety concerns?</label>
+                            <span class="iso-badge" title="WHO LIVES principle: listen/validate; trauma-informed inquiry"><i class="fas fa-shield-alt"></i> VAWC</span>
+                        </div>
+                        <textarea class="form-control" id="current_mood" name="current_mood" rows="4" placeholder="Share how you’re feeling right now and whether you have any concerns about your safety or wellbeing."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section form-step" data-title="Stress, Sleep & Support">
+                    <div class="form-group">
+                        <div class="label-row">
+                            <label for="stress_level">Perceived danger/stress level (1–10)</label>
+                            <span class="iso-badge" title="VAWC safety stress indicator; WHO LIVES"><i class="fas fa-certificate"></i> VAWC</span>
+                        </div>
                         <div class="scale-input">
                             <span>1</span>
                             <input type="range" id="stress_level" name="stress_level" min="1" max="10" value="5">
@@ -373,7 +507,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="sleep_quality">Sleep Quality (1-10)</label>
+                        <div class="label-row">
+                            <label for="sleep_quality">Sleep/rest quality affected by stress (1–10)</label>
+                            <span class="iso-badge" title="Trauma-informed wellbeing context"><i class="fas fa-certificate"></i> VAWC</span>
+                        </div>
                         <div class="scale-input">
                             <span>1</span>
                             <input type="range" id="sleep_quality" name="sleep_quality" min="1" max="10" value="5">
@@ -384,7 +521,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="social_support">Social Support (1-10)</label>
+                        <div class="label-row">
+                            <label for="social_support">Trusted social support availability (1–10)</label>
+                            <span class="iso-badge" title="Trusted supports; safety planning"><i class="fas fa-certificate"></i> VAWC</span>
+                        </div>
                         <div class="scale-input">
                             <span>1</span>
                             <input type="range" id="social_support" name="social_support" min="1" max="10" value="5">
@@ -395,64 +535,125 @@
                     </div>
                 </div>
 
-                <div class="form-section">
-                    <h3><i class="fas fa-lightbulb"></i> Life & Goals</h3>
-                    
+                <div class="form-section form-step" data-title="Recent changes">
                     <div class="form-group">
-                        <label for="life_changes">Recent Life Changes</label>
+                        <div class="label-row">
+                            <label for="life_changes">Recent changes that may affect safety or wellbeing</label>
+                            <span class="iso-badge" title="WHO LIVES—inquire about changes"><i class="fas fa-shield-alt"></i> VAWC</span>
+                        </div>
                         <textarea class="form-control" id="life_changes" name="life_changes" rows="3"
-                                  placeholder="Describe any significant changes in your life recently. How have these changes affected you? What adjustments have you had to make?"></textarea>
+                                  placeholder="Examples: moving, separation, job/financial shifts, pregnancy, changes at home or in relationships."></textarea>
                     </div>
 
+                </div>
+
+                <div class="form-section form-step" data-title="Emotional impact">
                     <div class="form-group">
-                        <label for="emotional_state">Emotional State</label>
+                        <div class="label-row">
+                            <label for="emotional_state">Emotional impact and triggers (trauma‑informed)</label>
+                            <span class="iso-badge" title="Trauma-informed prompts"><i class="fas fa-shield-alt"></i> VAWC</span>
+                        </div>
                         <textarea class="form-control" id="emotional_state" name="emotional_state" rows="3"
-                                  placeholder="Describe your overall emotional state. Are you feeling stable, overwhelmed, hopeful, or something else? What's contributing to these feelings?"></textarea>
+                                  placeholder="If comfortable, share emotions, triggers, or patterns (e.g., fear, anxiety, sleep disruption, hypervigilance)."></textarea>
                     </div>
 
+                </div>
+
+                <div class="form-section form-step" data-title="Safety/support goals">
                     <div class="form-group">
-                        <label for="goals">What are your goals?</label>
+                        <div class="label-row">
+                            <label for="goals">Immediate safety/support goals and preferred help</label>
+                            <span class="iso-badge" title="WHO LIVES—enhance safety/support"><i class="fas fa-shield-alt"></i> VAWC</span>
+                        </div>
                         <textarea class="form-control" id="goals" name="goals" rows="3"
-                                  placeholder="What would you like to achieve or improve? Be specific about your mental health, personal growth, or life goals. What would success look like for you?"></textarea>
+                                  placeholder="Examples: safety planning, talking to an advocate, legal/shelter info, counseling, practical supports."></textarea>
                     </div>
 
+                </div>
+
+                <div class="form-section form-step" data-title="Barriers to resources">
                     <div class="form-group">
-                        <label for="challenges">Current Challenges</label>
+                        <div class="label-row">
+                            <label for="challenges">Barriers to safety/resources</label>
+                            <span class="iso-badge" title="Psychosocial and practical barriers"><i class="fas fa-certificate"></i> VAWC</span>
+                        </div>
                         <textarea class="form-control" id="challenges" name="challenges" rows="3"
-                                  placeholder="What challenges are you currently facing? Describe the specific situations, relationships, or internal struggles you're dealing with. How are these challenges impacting your daily life?"></textarea>
+                                  placeholder="Examples: privacy/phone safety, transport, childcare, finances, documents, immigration, language."></textarea>
                     </div>
                 </div>
 
-                <div class="form-section">
-                    <h3><i class="fas fa-history"></i> Background</h3>
-                    
+                
+
+                <div class="form-section form-step" data-title="Prior help-seeking">
                     <div class="form-group">
-                        <label for="previous_counseling">Previous Counseling Experience</label>
+                        <div class="label-row">
+                            <label for="previous_counseling">Prior help‑seeking and safety planning experience</label>
+                            <span class="iso-badge" title="Service history relevant to safety"><i class="fas fa-shield-alt"></i> VAWC</span>
+                        </div>
                         <textarea class="form-control" id="previous_counseling" name="previous_counseling" rows="2"
-                                  placeholder="Have you had counseling or therapy before? What worked well? What didn't? What would you like to try differently?"></textarea>
+                                  placeholder="Who have you talked to before (advocate, counselor, hotline)? What was helpful? Any safety plans used?"></textarea>
                     </div>
 
+                </div>
+
+                <div class="form-section form-step" data-title="Medications/conditions">
                     <div class="form-group">
-                        <label for="medication">Current Medications</label>
+                        <div class="label-row">
+                            <label for="medication">Medications/conditions relevant to safety or mental state</label>
+                            <span class="iso-badge" title="Context for care and safety"><i class="fas fa-shield-alt"></i> VAWC</span>
+                        </div>
                         <textarea class="form-control" id="medication" name="medication" rows="2"
-                                  placeholder="Are you currently taking any medications? How are they affecting you? Any side effects or concerns?"></textarea>
+                                  placeholder="Optional: list medications/conditions that may affect mood, energy, alertness, or safety."></textarea>
                     </div>
 
+                </div>
+
+                <div class="form-section form-step" data-title="Trusted contacts">
                     <div class="form-group">
-                        <label for="support_system">Support System</label>
+                        <div class="label-row">
+                            <label for="support_system">Trusted contacts and safe ways to communicate</label>
+                            <span class="iso-badge" title="Safety planning & supports"><i class="fas fa-certificate"></i> VAWC</span>
+                        </div>
                         <textarea class="form-control" id="support_system" name="support_system" rows="2"
-                                  placeholder="Who can you turn to for support? Describe your relationships with family, friends, or other support people. How comfortable are you asking for help?"></textarea>
+                                  placeholder="List trusted people/organizations and safe times/channels to connect (call, text, in-person)."></textarea>
                     </div>
                 </div>
 
-                <div class="submit-toolbar">
-                    <button type="submit" class="submit-btn" id="submitBtn">
-                        <i class="fas fa-magic"></i> Get AI Recommendations
-                    </button>
-                    <div style="flex:1; min-width:220px;">
-                        <div class="model-badge"><i class="fas fa-circle-nodes"></i> FORMAL PARAGRAPH MODE</div>
-                        <div class="alignment-note">Enhanced alignment & counselor-focused narrative</div>
+                <!-- Final Step: Review & Consent -->
+                <div class="form-section form-step" aria-label="Consent & Submit" data-title="Review & Consent">
+                    <h3><i class="fas fa-file-signature"></i> Review & Consent</h3>
+                    <p class="helper-text">Review your entries and consent to proceed. You can go back and adjust any section before submitting.</p>
+                    <div class="terms-container" id="termsContainer">
+                        <label>
+                            <input type="checkbox" id="acceptTerms" style="margin-top:4px;"> 
+                            <span>
+                                I have read and agree to the <button type="button" class="link-btn" id="openTerms">Terms & Conditions</button> and the data privacy notice. 
+                                <span class="label-note">(Your responses are used to generate counseling guidance. This is not a medical diagnosis.)</span>
+                            </span>
+                        </label>
+                        <div class="terms-actions">
+                            <small class="label-note">Aligned to ISO 45003 and privacy best practices</small>
+                        </div>
                     </div>
+
+                    <div class="submit-toolbar">
+                        <button type="submit" class="submit-btn" id="submitBtn" disabled>
+                            <i class="fas fa-magic"></i> Get AI Recommendations
+                        </button>
+                        <div style="flex:1; min-width:220px;">
+                            <div class="model-badge"><i class="fas fa-circle-nodes"></i> FORMAL PARAGRAPH MODE</div>
+                            <div class="alignment-note">Enhanced alignment & counselor-focused narrative</div>
+                        </div>
+                    </div>
+                </div>
+
+                    </div> <!-- /wizard-track -->
+                </div> <!-- /wizard-viewport -->
+
+                <!-- Wizard navigation (Prev/Next) -->
+                <div class="wizard-footer" id="wizardFooter">
+                    <button type="button" class="nav-btn" id="prevStep"><i class="fas fa-arrow-left"></i> Previous</button>
+                    <button type="button" class="nav-btn primary" id="nextStep">Next <i class="fas fa-arrow-right"></i></button>
                 </div>
             </form>
         </div>
@@ -492,12 +693,12 @@
     </div>
 
     <!-- Rubric Modal -->
-    <div id="rubricModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div id="rubricModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="rubricTitle" aria-describedby="rubricSubtitle" tabindex="-1">
         <div class="modal-content" role="document">
             <div class="modal-header">
                 <div>
-                    <div class="modal-title" id="rubricTitle">Rubric</div>
-                    <div class="rubric-note" id="rubricSubtitle">Detailed 1–10 rubric</div>
+                    <div class="modal-title" id="rubricTitle"><i class="fas fa-clipboard-check"></i> Rubric</div>
+                    <div class="rubric-note" id="rubricSubtitle">Detailed 1–10 rubric to guide your selection</div>
                 </div>
                 <button class="modal-close" id="rubricClose" aria-label="Close">&times;</button>
             </div>
@@ -505,6 +706,9 @@
                 <ul class="rubric-list" id="rubricList">
                     <!-- Rubric items injected here -->
                 </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" id="rubricDone">Close</button>
             </div>
         </div>
     </div>
@@ -514,6 +718,138 @@
     </div>
 
     <script>
+        // Wizard logic: multi-step horizontal navigation with swipe
+        (function(){
+            const track = document.getElementById('wizardTrack');
+            const viewport = document.getElementById('wizardViewport');
+            const steps = Array.from(track ? track.querySelectorAll('.form-step') : []);
+            const prevBtn = document.getElementById('prevStep');
+            const nextBtn = document.getElementById('nextStep');
+            const dotsContainer = document.getElementById('progressDots');
+            const stepCounter = document.getElementById('stepCounter');
+            const stepTitle = document.getElementById('stepTitle');
+            let current = 0;
+
+            if (!track || steps.length === 0) return; // graceful fallback
+
+            // Build progress dots
+            function buildDots(){
+                dotsContainer.innerHTML = '';
+                steps.forEach((_, i) => {
+                    const dot = document.createElement('span');
+                    dot.className = 'progress-dot' + (i === current ? ' active' : '');
+                    dot.setAttribute('aria-label', `Step ${i+1}`);
+                    dot.addEventListener('click', () => goTo(i));
+                    dotsContainer.appendChild(dot);
+                });
+            }
+
+            function updateButtons(){
+                prevBtn.disabled = current === 0;
+                if (current === steps.length - 1) {
+                    nextBtn.style.visibility = 'hidden';
+                } else {
+                    nextBtn.style.visibility = 'visible';
+                }
+            }
+
+            function updateDots(){
+                const dots = dotsContainer.querySelectorAll('.progress-dot');
+                dots.forEach((d, i) => d.classList.toggle('active', i === current));
+            }
+
+            function goTo(index){
+                current = Math.max(0, Math.min(index, steps.length - 1));
+                track.style.transform = `translateX(-${current * 100}%)`;
+                steps.forEach((el, i) => el.setAttribute('aria-hidden', i !== current));
+                updateButtons();
+                updateDots();
+                // Update counter and title
+                if (stepCounter) stepCounter.textContent = `Step ${current + 1} of ${steps.length}`;
+                if (stepTitle) stepTitle.textContent = steps[current]?.getAttribute('data-title') || '';
+            }
+
+            // Touch swipe support
+            let touchStartX = 0; let touchEndX = 0; const SWIPE_THRESHOLD = 50;
+            viewport.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; });
+            viewport.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const delta = touchEndX - touchStartX;
+                if (Math.abs(delta) > SWIPE_THRESHOLD) {
+                    if (delta < 0) goTo(current + 1); else goTo(current - 1);
+                }
+            });
+
+            // Keyboard arrows (avoid when typing in inputs/textarea)
+            document.addEventListener('keydown', (e) => {
+                const tag = (e.target && e.target.tagName || '').toLowerCase();
+                if (tag === 'input' || tag === 'textarea') return;
+                if (e.key === 'ArrowRight') goTo(current + 1);
+                if (e.key === 'ArrowLeft') goTo(current - 1);
+            });
+
+            // Button handlers
+            prevBtn.addEventListener('click', () => goTo(current - 1));
+            nextBtn.addEventListener('click', () => goTo(current + 1));
+
+            // Initialize
+            buildDots();
+            goTo(0);
+        })();
+        // Terms & Conditions gating
+        const acceptTerms = document.getElementById('acceptTerms');
+        const submitBtn = document.getElementById('submitBtn');
+        const openTermsBtn = document.getElementById('openTerms');
+        acceptTerms.addEventListener('change', () => {
+            submitBtn.disabled = !acceptTerms.checked;
+        });
+
+        // Terms modal
+        const termsModal = document.createElement('div');
+        termsModal.className = 'modal';
+        termsModal.id = 'termsModal';
+        termsModal.setAttribute('role','dialog');
+        termsModal.setAttribute('aria-modal','true');
+        termsModal.setAttribute('aria-hidden','true');
+        termsModal.innerHTML = `
+            <div class="modal-content" role="document">
+                <div class="modal-header">
+                    <div>
+                        <div class="modal-title">Terms & Conditions</div>
+                        <div class="rubric-note">Please read carefully before submitting</div>
+                    </div>
+                    <button class="modal-close" id="termsClose" aria-label="Close">&times;</button>
+                </div>
+                <div class="modal-body" style="max-height:60vh; overflow:auto;">
+                    <p style="margin-bottom:10px;">
+                        This AI Counseling Assistant provides educational and supportive guidance only. It does not provide medical diagnosis or treatment. If you are in crisis, contact local emergency services.
+                    </p>
+                    <ul class="rubric-list">
+                        <li><strong>Data Use:</strong> Your inputs are processed to generate recommendations. No protected health information is required.</li>
+                        <li><strong>Privacy:</strong> Content may be stored locally to improve your experience. Review the project README for details.</li>
+                        <li><strong>Consent:</strong> By proceeding, you consent to the processing of your inputs for guidance generation.</li>
+                        <li><strong>Limitations:</strong> Outputs may be imperfect; always use personal judgment.</li>
+                        <li><strong>Standards Alignment:</strong> Prompts and data fields are aligned to ISO 10075/45003/10667 principles where applicable.</li>
+                    </ul>
+                </div>
+            </div>`;
+        document.body.appendChild(termsModal);
+        function openTermsModal(){
+            termsModal.style.display='flex';
+            requestAnimationFrame(()=>{ termsModal.classList.add('open'); });
+            termsModal.setAttribute('aria-hidden','false');
+            const tc = document.getElementById('termsClose');
+            if (tc) tc.focus();
+        }
+        function closeTermsModal(){
+            termsModal.classList.remove('open');
+            termsModal.setAttribute('aria-hidden','true');
+            setTimeout(()=>{ termsModal.style.display='none'; }, 160);
+        }
+        openTermsBtn.addEventListener('click', openTermsModal);
+        termsModal.addEventListener('click', (e)=>{ if(e.target===termsModal) closeTermsModal(); });
+        document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeTermsModal(); });
+        document.addEventListener('click', (e)=>{ if(e.target && e.target.id==='termsClose') closeTermsModal(); });
         // Update scale values in real-time
         document.querySelectorAll('input[type="range"]').forEach(input => {
             const valueSpan = input.parentElement.querySelector('.scale-value');
@@ -544,8 +880,11 @@
         document.getElementById('counselingForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             console.log('Form submitted');
+            if (!acceptTerms.checked) {
+                alert('Please accept the Terms & Conditions to proceed.');
+                return;
+            }
             
-            const submitBtn = document.getElementById('submitBtn');
             const loading = document.getElementById('loading');
             const resultsContainer = document.getElementById('resultsContainer');
             
@@ -652,18 +991,27 @@
                 if (sections.main && sections.main.length > 0) {
                     updateAIRecommendationsOneCard('aiRecommendations', [sections.main]);
                 } else {
-                    updateAIRecommendationsOneCard('aiRecommendations', mlRecs);
+                    // Prefer ML-driven text snippets by category if available
+                    const mainFallback = (recObj.immediate_actions || []).slice(0, 3)
+                        .concat(recObj.lifestyle_changes || []).slice(0, 5);
+                    updateAIRecommendationsOneCard('aiRecommendations', mainFallback.length ? mainFallback : mlRecs);
                 }
                 
-                // Emotion-Specific Guidance (use section.emotions if present)
-                updateSectionWithAI('emotionGuidance', sections.emotions ? [sections.emotions] : mlRecs);
+                // Emotion-Specific Guidance
+                if (sections.emotions && sections.emotions.length > 0) {
+                    updateSectionWithAI('emotionGuidance', [sections.emotions]);
+                } else {
+                    const emotionHints = buildEmotionGuidanceFallback(mlPreds, recObj);
+                    updateSectionWithAI('emotionGuidance', emotionHints);
+                }
                 
-                // ML Insights & Patterns removed per request
-                
-                // Practical Techniques removed per request
-                
-                // Next Steps (use section.next_steps if present)
-                updateSectionWithAI('nextSteps', sections.next_steps ? [sections.next_steps] : mlRecs);
+                // Next Steps
+                if (sections.next_steps && sections.next_steps.length > 0) {
+                    updateSectionWithAI('nextSteps', [sections.next_steps]);
+                } else {
+                    const steps = buildNextStepsFallback(mlPreds, recObj);
+                    updateSectionWithAI('nextSteps', steps);
+                }
                 
             } catch (error) {
                 console.error('Error updating recommendations:', error);
@@ -754,12 +1102,7 @@
                 .join(' ');
 
             const div = document.createElement('div');
-            div.className = 'recommendation-item';
-            div.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
-            div.style.color = 'white';
-            div.style.borderLeft = '4px solid #fff';
-            div.style.lineHeight = '1.6';
-            div.style.fontSize = '1rem';
+            div.className = 'recommendation-item recommendation-item--featured';
             div.innerHTML = `<div>${paragraph}</div>`;
             container.appendChild(div);
         }
@@ -781,6 +1124,42 @@
             card.className = 'recommendation-item';
             card.innerHTML = `<div>${paragraph}</div>`;
             container.appendChild(card);
+        }
+
+        // Build emotion guidance fallback using ML predictions and rule-based cues
+        function buildEmotionGuidanceFallback(mlPreds, recObj){
+            const out = [];
+            if (mlPreds && mlPreds.text_emotions) {
+                const e = mlPreds.text_emotions;
+                const keys = Object.keys(e).filter(k => e[k] > 0);
+                if (keys.length) {
+                    out.push(`Based on your text, we noticed ${keys.join(', ').replaceAll('_',' ')} cues. Consider tailored strategies such as grounding, mindful breathing, and reframing thoughts.`);
+                }
+            }
+            // Use a couple of targeted items if available
+            if (Array.isArray(recObj.therapeutic_techniques) && recObj.therapeutic_techniques.length) {
+                out.push('Recommended techniques: ' + recObj.therapeutic_techniques.slice(0,2).map(t => t.name).join(', ') + '.');
+            }
+            if (!out.length && Array.isArray(recObj.immediate_actions)) {
+                out.push(recObj.immediate_actions.slice(0,2).join(' '));
+            }
+            return out;
+        }
+
+        // Build next steps fallback from ML risk and plan hints
+        function buildNextStepsFallback(mlPreds, recObj){
+            const out = [];
+            const risk = (mlPreds && mlPreds.risk_level) || 'medium';
+            if (risk === 'high') out.push('Priority: Please plan a professional consult soon and use crisis resources if needed.');
+            else if (risk === 'medium') out.push('Priority: Implement the suggested practices and monitor your progress this week.');
+            else out.push('Priority: Continue with preventive habits and track your wellness.');
+            if (recObj.follow_up_plan && Array.isArray(recObj.follow_up_plan.weekly_check_ins)) {
+                out.push('Follow-up: ' + recObj.follow_up_plan.weekly_check_ins[0]);
+            }
+            if (recObj.data_insights && recObj.data_insights.session_count) {
+                out.push(`Progress: ${recObj.data_insights.session_count} session(s) logged—recommend revisiting in 1–2 weeks.`);
+            }
+            return out;
         }
 
         // Practical Techniques removed per request
@@ -965,6 +1344,10 @@
             }
         };
 
+        // Modal focus handling state
+        let rubricTrapHandler = null;
+        let rubricLastFocused = null;
+
         function openRubricModal(key) {
             const rubric = RUBRICS[key];
             if (!rubric) return;
@@ -973,21 +1356,42 @@
             document.getElementById('rubricSubtitle').textContent = rubric.subtitle;
             const list = document.getElementById('rubricList');
             list.innerHTML = '';
-            rubric.items.forEach((text, idx) => {
+            rubric.items.forEach((text) => {
                 const li = document.createElement('li');
-                li.innerHTML = `<strong>${idx + 1}.</strong> ${text}`;
+                li.textContent = text; // numbering handled by CSS counter
                 list.appendChild(li);
             });
+            rubricLastFocused = document.activeElement;
             modal.style.display = 'flex';
+            // trigger entry animation
+            requestAnimationFrame(()=>{ modal.classList.add('open'); });
             modal.setAttribute('aria-hidden','false');
             // focus close button for accessibility
-            document.getElementById('rubricClose').focus();
+            const closeBtn = document.getElementById('rubricClose');
+            if (closeBtn) closeBtn.focus();
+            // focus trap within modal
+            const getFocusable = () => Array.from(modal.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])')).filter(el => el.offsetParent !== null);
+            rubricTrapHandler = (e) => {
+                if (e.key !== 'Tab') return;
+                const items = getFocusable();
+                if (!items.length) return;
+                const first = items[0];
+                const last = items[items.length - 1];
+                if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+            };
+            document.addEventListener('keydown', rubricTrapHandler, true);
         }
 
         function closeRubricModal() {
             const modal = document.getElementById('rubricModal');
-            modal.style.display = 'none';
+            modal.classList.remove('open');
             modal.setAttribute('aria-hidden','true');
+            setTimeout(()=>{ modal.style.display = 'none'; }, 160);
+            if (rubricTrapHandler) { document.removeEventListener('keydown', rubricTrapHandler, true); rubricTrapHandler = null; }
+            if (rubricLastFocused && typeof rubricLastFocused.focus === 'function') {
+                rubricLastFocused.focus();
+            }
         }
 
         // Attach handlers to rubric buttons
@@ -999,7 +1403,9 @@
             }
         });
 
-        document.getElementById('rubricClose').addEventListener('click', closeRubricModal);
+    document.getElementById('rubricClose').addEventListener('click', closeRubricModal);
+    const rubricDoneBtn = document.getElementById('rubricDone');
+    if (rubricDoneBtn) rubricDoneBtn.addEventListener('click', closeRubricModal);
         // Close when clicking outside content
         document.getElementById('rubricModal').addEventListener('click', (e) => {
             if (e.target === document.getElementById('rubricModal')) closeRubricModal();

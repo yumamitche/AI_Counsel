@@ -2782,5 +2782,42 @@
     ],
     "baselines": {},
     "patterns": {}
+  },
+  "2f9fc127-90db-43af-9886-3e10aff6ee27": {
+    "created": "2025-10-13T22:44:09.567120",
+    "sessions": [
+      {
+        "timestamp": "2025-10-13T22:44:09.567135",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1081,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
   }
 }
