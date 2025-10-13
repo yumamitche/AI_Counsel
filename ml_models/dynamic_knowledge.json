@@ -1,0 +1,30 @@
+{
+  "successful_patterns": {
+    "test_user": [
+      {
+        "timestamp": "2025-09-07T20:40:01.886732",
+        "feedback": {
+          "helpfulness_rating": 4,
+          "comments": "Very helpful recommendations",
+          "implemented_recommendations": [
+            "breathing_exercises",
+            "meditation"
+          ]
+        },
+        "success_type": "high_rating"
+      }
+    ]
+  },
+  "failed_patterns": {},
+  "user_preferences": {
+    "test_user": {
+      "preferred_emotions": {},
+      "successful_techniques": {},
+      "communication_style": "supportive",
+      "learning_rate": 0.1
+    }
+  },
+  "contextual_responses": {},
+  "learning_metrics": {},
+  "adaptation_history": []
+}

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - AI Counseling Assistant</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-buttons {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .resources-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .resource-section {
+            margin-bottom: 40px;
+        }
+
+        .resource-section h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #e1e5e9;
+            padding-bottom: 10px;
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .resource-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid #e1e5e9;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resource-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        .resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .resource-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .resource-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .resource-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .crisis-alert {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+            border: 3px solid #fff;
+        }
+
+        .crisis-alert h2 {
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        .crisis-alert p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .crisis-number {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .resources-container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-book"></i> Mental Health Resources</h1>
+            <p>Professional help, support groups, and self-help resources</p>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="/" class="nav-btn"><i class="fas fa-home"></i> Home</a>
+            <a href="/analysis" class="nav-btn"><i class="fas fa-chart-line"></i> Analysis</a>
+            <a href="/about" class="nav-btn"><i class="fas fa-info-circle"></i> About</a>
+        </div>
+
+        <div class="crisis-alert">
+            <h2><i class="fas fa-exclamation-triangle"></i> Crisis Support</h2>
+            <p>If you're experiencing a mental health crisis or having thoughts of self-harm, help is available 24/7:</p>
+            <div class="crisis-number">988</div>
+            <p>National Suicide Prevention Lifeline</p>
+            <p><strong>Text HOME to 741741</strong> for Crisis Text Line support</p>
+        </div>
+
+        <div class="resources-container">
+            <div class="resource-section">
+                <h3><i class="fas fa-phone"></i> Crisis Hotlines</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="resource-name">National Suicide Prevention Lifeline</div>
+                        <div class="resource-description">24/7 crisis support and suicide prevention services</div>
+                        <div class="crisis-number">988</div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="resource-name">Crisis Text Line</div>
+                        <div class="resource-description">Text-based crisis support available 24/7</div>
+                        <div class="crisis-number">Text HOME to 741741</div>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="resource-name">SAMHSA National Helpline</div>
+                        <div class="resource-description">Treatment referral and information for mental health and substance use</div>
+                        <div class="crisis-number">1-800-662-HELP</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-section">
+                <h3><i class="fas fa-users"></i> Support Organizations</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="resource-name">National Alliance on Mental Illness (NAMI)</div>
+                        <div class="resource-description">Support, education, and advocacy for people affected by mental illness</div>
+                        <a href="https://www.nami.org" target="_blank" class="resource-link">Visit Website</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="resource-name">MentalHealth.gov</div>
+                        <div class="resource-description">Government mental health information and resources</div>
+                        <a href="https://www.mentalhealth.gov" target="_blank" class="resource-link">Visit Website</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="resource-name">American Psychological Association</div>
+                        <div class="resource-description">Professional psychology resources and therapist finder</div>
+                        <a href="https://www.apa.org" target="_blank" class="resource-link">Visit Website</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-section">
+                <h3><i class="fas fa-mobile-alt"></i> Mental Health Apps</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="resource-name">Headspace</div>
+                        <div class="resource-description">Meditation and mindfulness app for stress reduction and better sleep</div>
+                        <a href="https://www.headspace.com" target="_blank" class="resource-link">Learn More</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="resource-name">Calm</div>
+                        <div class="resource-description">Sleep and relaxation app with guided meditations and sleep stories</div>
+                        <a href="https://www.calm.com" target="_blank" class="resource-link">Learn More</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="resource-name">MoodTools</div>
+                        <div class="resource-description">Depression self-help tools including mood tracking and thought records</div>
+                        <a href="https://moodtools.org" target="_blank" class="resource-link">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-section">
+                <h3><i class="fas fa-book-open"></i> Recommended Books</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="resource-name">The Anxiety and Phobia Workbook</div>
+                        <div class="resource-description">Practical exercises and techniques for anxiety management by Edmund J. Bourne</div>
+                        <p><em>Available at most bookstores and libraries</em></p>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="resource-name">Feeling Good: The New Mood Therapy</div>
+                        <div class="resource-description">CBT-based approach to depression by David D. Burns</div>
+                        <p><em>Available at most bookstores and libraries</em></p>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="resource-name">Self-Compassion</div>
+                        <div class="resource-description">The proven power of being kind to yourself by Kristin Neff</div>
+                        <p><em>Available at most bookstores and libraries</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-section">
+                <h3><i class="fas fa-search"></i> Finding Professional Help</h3>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="resource-name">Psychology Today Therapist Finder</div>
+                        <div class="resource-description">Search for therapists, psychiatrists, and treatment centers in your area</div>
+                        <a href="https://www.psychologytoday.com/us/therapists" target="_blank" class="resource-link">Find Therapist</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <div class="resource-name">SAMHSA Treatment Locator</div>
+                        <div class="resource-description">Find treatment facilities for mental health and substance use disorders</div>
+                        <a href="https://findtreatment.samhsa.gov" target="_blank" class="resource-link">Find Treatment</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="resource-name">Your Insurance Provider</div>
+                        <div class="resource-description">Contact your health insurance provider for a list of covered mental health professionals</div>
+                        <p><em>Check your insurance card for contact information</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="/" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Assessment
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

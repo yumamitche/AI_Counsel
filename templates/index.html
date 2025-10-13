@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Counseling Assistant</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .form-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .scale-input {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Rubric button */
+        .rubric-btn {
+            background: #fff;
+            border: 1px solid #dfe6fb;
+            color: #334155;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(51,65,85,0.06);
+            transition: transform 0.12s ease, box-shadow 0.12s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .rubric-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(51,65,85,0.08); }
+
+        /* Modal styles for rubrics */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.45);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #fff;
+            border-radius: 12px;
+            max-width: 720px;
+            width: 100%;
+            padding: 20px 26px;
+            box-shadow: 0 30px 60px rgba(17,24,39,0.18);
+        }
+
+        .modal-header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+        .modal-title { font-weight:700; color:#1f2937; font-size:1.05rem; }
+        .modal-close { background:transparent; border:none; font-size:1.2rem; cursor:pointer; color:#6b7280; }
+        .rubric-list { list-style:none; margin-top:14px; padding-left:0; }
+        .rubric-list li { padding:10px 12px; border-radius:8px; margin-bottom:8px; background:#f8fafc; border:1px solid #eef2ff; color:#111827; }
+        .rubric-note { font-size:0.85rem; color:#6b7280; margin-top:6px; }
+
+        .scale-input input[type="range"] {
+            flex: 1;
+            height: 8px;
+            border-radius: 5px;
+            background: #e1e5e9;
+            outline: none;
+        }
+
+        .scale-input input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #667eea;
+            cursor: pointer;
+        }
+
+        .scale-value {
+            min-width: 30px;
+            text-align: center;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .results-container {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+
+        .emotional-score {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .recommendations-section {
+            margin-bottom: 25px;
+        }
+
+        .recommendations-section h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .recommendation-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .technique-item {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #e1e5e9;
+        }
+
+        .technique-steps {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .technique-steps li {
+            margin-bottom: 5px;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            border-color: #17a2b8;
+            color: #0c5460;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            border-color: #ffc107;
+            color: #856404;
+        }
+
+        .alert-danger {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: white;
+            opacity: 0.8;
+        }
+
+        /* Formal typography and paragraph alignment enhancements */
+        .form-container, .results-container { line-height: 1.55; }
+        .form-container textarea.form-control { font-family: "Georgia", "Times New Roman", serif; font-size: 15px; letter-spacing: 0.2px; }
+        .form-section p.helper-text { font-size: 0.85rem; color: #666; margin-top: -5px; margin-bottom: 15px; font-style: italic; }
+        .recommendation-item, .results-container p, .results-container div { text-align: justify; text-justify: inter-word; }
+        .recommendation-item { font-family: "Georgia", serif; font-size: 0.97rem; }
+        .formal-paragraph-card .recommendation-item { background: #f6f7fb; border: 1px solid #e0e4ec; border-left: 4px solid #667eea; color: #222; box-shadow: 0 4px 10px rgba(0,0,0,0.04); }
+        .formal-heading { font-family: 'Segoe UI', Tahoma, sans-serif; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; font-size: 0.85rem; color: #555; margin-bottom: 8px; }
+        .paragraph-block { margin-bottom: 28px; }
+        .paragraph-block:last-child { margin-bottom: 0; }
+        .submit-toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 25px; }
+        .model-badge { background: linear-gradient(135deg,#4f5bd5,#962fbf); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; letter-spacing: 0.5px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+        .model-badge i { font-size: 0.85rem; }
+        .alignment-note { font-size: 0.7rem; color: #888; letter-spacing: 0.5px; margin-top: 4px; text-transform: uppercase; }
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .form-container, .results-container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .submit-toolbar { flex-direction: column; align-items: stretch; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-robot"></i> AI Counseling Assistant</h1>
+            <p>Powered by TinyLlama-Chat • Get personalized mental health recommendations and support</p>
+        </div>
+
+        <div class="form-container">
+            <form id="counselingForm">
+                <div class="form-section">
+                    <h3><i class="fas fa-heart"></i> Current State</h3>
+                    
+                    <div class="form-group">
+                        <label for="current_mood">How are you feeling right now?</label>
+                        <textarea class="form-control" id="current_mood" name="current_mood" rows="3" 
+                                  placeholder="Describe your current mood and feelings in detail. What emotions are you experiencing? What thoughts are going through your mind? The more specific you are, the better the AI can help you."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stress_level">Stress Level (1-10)</label>
+                        <div class="scale-input">
+                            <span>1</span>
+                            <input type="range" id="stress_level" name="stress_level" min="1" max="10" value="5">
+                            <span>10</span>
+                            <span class="scale-value" id="stress_value">5</span>
+                            <button type="button" class="rubric-btn" data-rubric="stress" title="Open stress rubric"><i class="fas fa-list-ol"></i> Rubric</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sleep_quality">Sleep Quality (1-10)</label>
+                        <div class="scale-input">
+                            <span>1</span>
+                            <input type="range" id="sleep_quality" name="sleep_quality" min="1" max="10" value="5">
+                            <span>10</span>
+                            <span class="scale-value" id="sleep_value">5</span>
+                            <button type="button" class="rubric-btn" data-rubric="sleep" title="Open sleep quality rubric"><i class="fas fa-list-ol"></i> Rubric</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="social_support">Social Support (1-10)</label>
+                        <div class="scale-input">
+                            <span>1</span>
+                            <input type="range" id="social_support" name="social_support" min="1" max="10" value="5">
+                            <span>10</span>
+                            <span class="scale-value" id="social_value">5</span>
+                            <button type="button" class="rubric-btn" data-rubric="social" title="Open social support rubric"><i class="fas fa-list-ol"></i> Rubric</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-lightbulb"></i> Life & Goals</h3>
+                    
+                    <div class="form-group">
+                        <label for="life_changes">Recent Life Changes</label>
+                        <textarea class="form-control" id="life_changes" name="life_changes" rows="3"
+                                  placeholder="Describe any significant changes in your life recently. How have these changes affected you? What adjustments have you had to make?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emotional_state">Emotional State</label>
+                        <textarea class="form-control" id="emotional_state" name="emotional_state" rows="3"
+                                  placeholder="Describe your overall emotional state. Are you feeling stable, overwhelmed, hopeful, or something else? What's contributing to these feelings?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="goals">What are your goals?</label>
+                        <textarea class="form-control" id="goals" name="goals" rows="3"
+                                  placeholder="What would you like to achieve or improve? Be specific about your mental health, personal growth, or life goals. What would success look like for you?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="challenges">Current Challenges</label>
+                        <textarea class="form-control" id="challenges" name="challenges" rows="3"
+                                  placeholder="What challenges are you currently facing? Describe the specific situations, relationships, or internal struggles you're dealing with. How are these challenges impacting your daily life?"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3><i class="fas fa-history"></i> Background</h3>
+                    
+                    <div class="form-group">
+                        <label for="previous_counseling">Previous Counseling Experience</label>
+                        <textarea class="form-control" id="previous_counseling" name="previous_counseling" rows="2"
+                                  placeholder="Have you had counseling or therapy before? What worked well? What didn't? What would you like to try differently?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="medication">Current Medications</label>
+                        <textarea class="form-control" id="medication" name="medication" rows="2"
+                                  placeholder="Are you currently taking any medications? How are they affecting you? Any side effects or concerns?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="support_system">Support System</label>
+                        <textarea class="form-control" id="support_system" name="support_system" rows="2"
+                                  placeholder="Who can you turn to for support? Describe your relationships with family, friends, or other support people. How comfortable are you asking for help?"></textarea>
+                    </div>
+                </div>
+
+                <div class="submit-toolbar">
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <i class="fas fa-magic"></i> Get AI Recommendations
+                    </button>
+                    <div style="flex:1; min-width:220px;">
+                        <div class="model-badge"><i class="fas fa-circle-nodes"></i> FORMAL PARAGRAPH MODE</div>
+                        <div class="alignment-note">Enhanced alignment & counselor-focused narrative</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>🤖 AI is analyzing your responses and generating personalized recommendations...</p>
+            <p style="font-size: 0.9em; opacity: 0.8; margin-top: 10px;">Using TinyLlama-Chat for dynamic text generation and ML analysis</p>
+        </div>
+
+        <div class="results-container" id="resultsContainer">
+            <div class="emotional-score">
+                <div class="score-circle" id="emotionalScoreCircle">0</div>
+                <h3>Your Emotional Wellness Score</h3>
+                <p id="scoreDescription">Loading...</p>
+            </div>
+
+            <div class="recommendations-section">
+                <h4><i class="fas fa-robot"></i> AI-Counseling Recommendations</h4>
+                <div id="aiRecommendations"></div>
+            </div>
+
+            <div class="recommendations-section">
+                <h4><i class="fas fa-heart"></i> Emotion-Specific Guidance</h4>
+                <div id="emotionGuidance"></div>
+            </div>
+
+            
+
+
+
+            <div class="recommendations-section">
+                <h4><i class="fas fa-calendar-check"></i> Next Steps</h4>
+                <div id="nextSteps"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rubric Modal -->
+    <div id="rubricModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-content" role="document">
+            <div class="modal-header">
+                <div>
+                    <div class="modal-title" id="rubricTitle">Rubric</div>
+                    <div class="rubric-note" id="rubricSubtitle">Detailed 1–10 rubric</div>
+                </div>
+                <button class="modal-close" id="rubricClose" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ul class="rubric-list" id="rubricList">
+                    <!-- Rubric items injected here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 AI Counseling Assistant. This is not a substitute for professional medical advice.</p>
+    </div>
+
+    <script>
+        // Update scale values in real-time
+        document.querySelectorAll('input[type="range"]').forEach(input => {
+            const valueSpan = input.parentElement.querySelector('.scale-value');
+            input.addEventListener('input', () => {
+                valueSpan.textContent = input.value;
+            });
+        });
+        
+        // Debug: Check if form inputs are working
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, checking form inputs...');
+            
+            const textInputs = document.querySelectorAll('input[type="text"], textarea');
+            textInputs.forEach((input, index) => {
+                console.log(`Input ${index}:`, input.id, 'focusable:', input.tabIndex >= 0);
+                
+                input.addEventListener('focus', () => {
+                    console.log('Input focused:', input.id);
+                });
+                
+                input.addEventListener('input', () => {
+                    console.log('Input changed:', input.id, 'value:', input.value);
+                });
+            });
+        });
+
+        // Form submission
+        document.getElementById('counselingForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            console.log('Form submitted');
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const loading = document.getElementById('loading');
+            const resultsContainer = document.getElementById('resultsContainer');
+            
+            // Show loading with progress
+            submitBtn.disabled = true;
+            loading.style.display = 'block';
+            resultsContainer.style.display = 'none';
+            
+            // Update loading message with progress
+            const loadingMessages = [
+                'Analyzing your responses...',
+                'Generating AI recommendations...',
+                'Processing emotional insights...',
+                'Creating personalized advice...',
+                'Almost ready...'
+            ];
+            
+            let messageIndex = 0;
+            const progressInterval = setInterval(() => {
+                if (messageIndex < loadingMessages.length) {
+                    const loadingText = loading.querySelector('p');
+                    if (loadingText) {
+                        loadingText.textContent = loadingMessages[messageIndex];
+                    }
+                    messageIndex++;
+                }
+            }, 4000); // Change message every 4 seconds
+            
+            // Collect form data
+            const formData = new FormData(e.target);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            try {
+                const response = await fetch('/submit_form', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                // Check if response is JSON
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    throw new Error('Server returned non-JSON response. Please check if the server is running properly.');
+                }
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    displayResults(result);
+                } else {
+                    // Handle timeout specifically
+                    if (response.status === 408) {
+                        alert('Generation took too long. Please try again with shorter text inputs or try again in a moment.');
+                    } else {
+                        alert('Error: ' + result.error);
+                    }
+                }
+            } catch (error) {
+                if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                    alert('Connection timeout. The AI is taking longer than expected. Please try again with shorter text inputs.');
+                } else {
+                    alert('Error submitting form: ' + error.message);
+                }
+            } finally {
+                clearInterval(progressInterval); // Clear progress messages
+                loading.style.display = 'none';
+                submitBtn.disabled = false;
+            }
+        });
+
+        function displayResults(result) {
+            const resultsContainer = document.getElementById('resultsContainer');
+            
+            // Debug: Log the entire result object
+            console.log('Full result object:', result);
+            console.log('Recommendations object:', result.recommendations);
+            console.log('ML Recommendations:', result.recommendations?.ml_recommendations);
+            console.log('ML Predictions:', result.recommendations?.ml_predictions);
+            console.log('Data Insights:', result.recommendations?.data_insights);
+
+            // Update emotional score
+            const score = result.emotional_score;
+            document.getElementById('emotionalScoreCircle').textContent = Math.round(score);
+            let scoreDescription = '';
+            if (score >= 80) scoreDescription = 'Excellent emotional wellness!';
+            else if (score >= 60) scoreDescription = 'Good emotional wellness with room for improvement.';
+            else if (score >= 40) scoreDescription = 'Moderate emotional wellness - some support may be helpful.';
+            else scoreDescription = 'Lower emotional wellness - consider seeking professional support.';
+            document.getElementById('scoreDescription').textContent = scoreDescription;
+
+            try {
+                const recObj = result.recommendations || {};
+                const mlRecs = recObj.ml_recommendations || result.ml_recommendations || [];
+                const mlPreds = recObj.ml_predictions || result.ml_predictions || {};
+                const dataInsights = recObj.data_insights || result.data_insights || {};
+                const sections = recObj.sections || result.sections || {};
+                
+                // AI-Generated Recommendations (TinyLlama-Chat) - prefer section.main if present
+                if (sections.main && sections.main.length > 0) {
+                    updateAIRecommendationsOneCard('aiRecommendations', [sections.main]);
+                } else {
+                    updateAIRecommendationsOneCard('aiRecommendations', mlRecs);
+                }
+                
+                // Emotion-Specific Guidance (use section.emotions if present)
+                updateSectionWithAI('emotionGuidance', sections.emotions ? [sections.emotions] : mlRecs);
+                
+                // ML Insights & Patterns removed per request
+                
+                // Practical Techniques removed per request
+                
+                // Next Steps (use section.next_steps if present)
+                updateSectionWithAI('nextSteps', sections.next_steps ? [sections.next_steps] : mlRecs);
+                
+            } catch (error) {
+                console.error('Error updating recommendations:', error);
+                document.getElementById('aiRecommendations').innerHTML = '<p>Error loading recommendations. Please try again.</p>';
+            }
+            
+            // Show results
+            resultsContainer.style.display = 'block';
+            resultsContainer.scrollIntoView({ behavior: 'smooth' });
+
+            // Apply formal paragraph styling wrappers after content loads
+            ['aiRecommendations','emotionGuidance','nextSteps'].forEach(id => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                if (!el.classList.contains('formal-paragraph-card')) {
+                    el.classList.add('formal-paragraph-card');
+                }
+                el.querySelectorAll('.recommendation-item').forEach(div => {
+                    div.style.textAlign = 'justify';
+                    div.style.textJustify = 'inter-word';
+                    div.style.padding = '22px 24px';
+                    div.style.borderRadius = '14px';
+                    div.style.lineHeight = '1.65';
+                    div.style.letterSpacing = '0.2px';
+                });
+            });
+        }
+
+        function updateRecommendations(containerId, items, isDetailed = false) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            if (!items || !Array.isArray(items) || items.length === 0) {
+                container.innerHTML = '<p>No specific recommendations for this category.</p>';
+                return;
+            }
+            
+            items.forEach(item => {
+                if (isDetailed && typeof item === 'object') {
+                    const div = document.createElement('div');
+                    div.className = 'technique-item';
+                    div.innerHTML = `
+                        <h5>${item.name || 'Resource'}</h5>
+                        <p>${item.description || ''}</p>
+                        ${item.steps && Array.isArray(item.steps) ? `<ol class="technique-steps">${item.steps.map(step => `<li>${step}</li>`).join('')}</ol>` : ''}
+                        ${item.url ? `<p><a href="${item.url}" target="_blank" style="color: #667eea;">Learn More</a></p>` : ''}
+                    `;
+                    container.appendChild(div);
+                } else {
+                    const div = document.createElement('div');
+                    div.className = 'recommendation-item';
+                    div.textContent = item;
+                    container.appendChild(div);
+                }
+            });
+        }
+
+        function updateAIRecommendationsOneCard(containerId, recommendations) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            console.log('AI Recommendations received:', recommendations);
+            
+            if (!recommendations) {
+                container.innerHTML = '<p>AI recommendations are being generated. Please try again in a moment.</p>';
+                return;
+            }
+            
+            // Handle both array and object formats
+            let recArray = [];
+            if (Array.isArray(recommendations)) {
+                recArray = recommendations;
+            } else if (typeof recommendations === 'object') {
+                // If it's an object, try to extract recommendations
+                recArray = Object.values(recommendations).filter(item => 
+                    typeof item === 'string' && item.trim().length > 0
+                );
+            }
+            
+            if (recArray.length === 0) {
+                container.innerHTML = '<p>AI recommendations are being generated. Please try again in a moment.</p>';
+                return;
+            }
+            
+            // Build one consolidated paragraph
+            const paragraph = recArray
+                .map(rec => (typeof rec === 'string' ? rec : String(rec)).replace(/^[-•\d.\s]+/, '').trim())
+                .join(' ');
+
+            const div = document.createElement('div');
+            div.className = 'recommendation-item';
+            div.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
+            div.style.color = 'white';
+            div.style.borderLeft = '4px solid #fff';
+            div.style.lineHeight = '1.6';
+            div.style.fontSize = '1rem';
+            div.innerHTML = `<div>${paragraph}</div>`;
+            container.appendChild(div);
+        }
+
+        function updateSectionWithAI(containerId, recommendations) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            if (!recommendations || (Array.isArray(recommendations) && recommendations.length === 0)) {
+                container.innerHTML = '<p>Generating...</p>';
+                return;
+            }
+            
+            const paragraph = (Array.isArray(recommendations) ? recommendations : Object.values(recommendations))
+                .map(txt => (typeof txt === 'string' ? txt : String(txt)).replace(/^[-•\d.\s]+/, '').trim())
+                .join(' ');
+            
+            const card = document.createElement('div');
+            card.className = 'recommendation-item';
+            card.innerHTML = `<div>${paragraph}</div>`;
+            container.appendChild(card);
+        }
+
+        // Practical Techniques removed per request
+
+        function updateEmotionGuidance(containerId, mlPredictions) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            console.log('Emotion Guidance - ML Predictions:', mlPredictions);
+            
+            if (!mlPredictions) {
+                container.innerHTML = '<p>Emotion analysis is being processed. Please try again in a moment.</p>';
+                return;
+            }
+            
+            const textEmotions = mlPredictions.text_emotions || {};
+            const emotions = Object.entries(textEmotions).filter(([emotion, count]) => count > 0);
+            
+            if (emotions.length === 0) {
+                container.innerHTML = '<p>No specific emotions detected in your text. This is normal and healthy!</p>';
+                return;
+            }
+            
+            emotions.forEach(([emotion, count]) => {
+                    const div = document.createElement('div');
+                div.className = 'recommendation-item';
+                div.style.background = '#f0f8ff';
+                div.style.borderLeft = '4px solid #667eea';
+                    div.innerHTML = `
+                    <h5 style="color: #667eea; margin-bottom: 8px; text-transform: capitalize;">${emotion.replace('_', ' ')} (${count} mentions)</h5>
+                    <p>Based on your text, we detected ${emotion.replace('_', ' ')}. Here are some specific strategies:</p>
+                    <ul style="margin-top: 8px; padding-left: 20px;">
+                        ${getEmotionSpecificTips(emotion)}
+                    </ul>
+                    `;
+                    container.appendChild(div);
+            });
+        }
+
+        function updateMLInsights(containerId, mlPredictions, dataInsights) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            console.log('ML Predictions:', mlPredictions);
+            console.log('Data Insights:', dataInsights);
+            
+            const insights = [];
+            
+            // Risk level insight
+            if (mlPredictions && mlPredictions.risk_level) {
+                insights.push(`<div class="recommendation-item"><strong>Risk Assessment:</strong> ${mlPredictions.risk_level} risk level detected</div>`);
+            }
+            
+            // Success probability
+            if (mlPredictions && mlPredictions.success_probability) {
+                const prob = Math.round(mlPredictions.success_probability * 100);
+                insights.push(`<div class="recommendation-item"><strong>Success Probability:</strong> ${prob}% chance of positive outcomes with recommended interventions</div>`);
+            }
+            
+            // Text cluster
+            if (mlPredictions && mlPredictions.text_cluster) {
+                insights.push(`<div class="recommendation-item"><strong>Pattern Recognition:</strong> Your responses show patterns similar to others who benefited from specific approaches</div>`);
+            }
+            
+            // Model confidence
+            if (dataInsights && dataInsights.model_confidence) {
+                const confidence = Math.round(dataInsights.model_confidence * 100);
+                insights.push(`<div class="recommendation-item"><strong>Analysis Confidence:</strong> ${confidence}% confidence in these recommendations</div>`);
+            }
+            
+            // Session count
+            if (dataInsights && dataInsights.session_count) {
+                insights.push(`<div class="recommendation-item"><strong>Learning Progress:</strong> System has learned from ${dataInsights.session_count} session(s) for better recommendations</div>`);
+            }
+            
+            // Text emotions summary
+            if (mlPredictions && mlPredictions.text_emotions) {
+                const emotions = Object.entries(mlPredictions.text_emotions).filter(([emotion, count]) => count > 0);
+                if (emotions.length > 0) {
+                    const emotionText = emotions.map(([emotion, count]) => `${emotion} (${count})`).join(', ');
+                    insights.push(`<div class="recommendation-item"><strong>Emotion Analysis:</strong> Detected ${emotionText}</div>`);
+                }
+            }
+            
+            if (insights.length === 0) {
+                container.innerHTML = '<p>ML analysis is being processed. Please try again in a moment.</p>';
+                return;
+            }
+            
+            container.innerHTML = insights.join('');
+        }
+
+        function updateNextSteps(containerId, mlPredictions, dataInsights) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            const steps = [];
+            
+            // Immediate actions based on risk level
+            if (mlPredictions.risk_level === 'high') {
+                steps.push('<div class="recommendation-item" style="background: #f8d7da; border-left: 4px solid #dc3545;"><strong>Priority:</strong> Consider reaching out to a mental health professional soon</div>');
+            } else if (mlPredictions.risk_level === 'medium') {
+                steps.push('<div class="recommendation-item" style="background: #fff3cd; border-left: 4px solid #ffc107;"><strong>Priority:</strong> Implement the recommended techniques and monitor your progress</div>');
+            } else {
+                steps.push('<div class="recommendation-item" style="background: #d1ecf1; border-left: 4px solid #17a2b8;"><strong>Priority:</strong> Continue with positive practices and consider preventive measures</div>');
+            }
+            
+            // Follow-up timing
+            steps.push('<div class="recommendation-item"><strong>Follow-up:</strong> Check back in 1-2 weeks to track your progress</div>');
+            
+            // Data collection
+            if (dataInsights.session_count) {
+                steps.push(`<div class="recommendation-item"><strong>Progress Tracking:</strong> You have ${dataInsights.session_count} session(s) - your patterns are being learned for better recommendations</div>`);
+            }
+            
+            container.innerHTML = steps.join('');
+        }
+
+        function getEmotionSpecificTips(emotion) {
+            const tips = {
+                'anxiety': ['Practice deep breathing exercises', 'Try progressive muscle relaxation', 'Use grounding techniques (5-4-3-2-1 method)'],
+                'depression': ['Maintain a regular sleep schedule', 'Engage in physical activity daily', 'Connect with supportive people'],
+                'stress': ['Practice time management', 'Try mindfulness meditation', 'Set realistic boundaries'],
+                'loneliness': ['Join community groups or activities', 'Reach out to friends or family', 'Consider volunteering'],
+                'happiness': ['Continue current positive practices', 'Share your joy with others', 'Document what brings you happiness'],
+                'anger': ['Practice anger management techniques', 'Use "I" statements when communicating', 'Take breaks when feeling overwhelmed']
+            };
+            
+            return (tips[emotion] || ['Focus on self-care', 'Practice mindfulness', 'Seek support when needed'])
+                .map(tip => `<li>${tip}</li>`).join('');
+        }
+
+        // Rubric modal: definitions for Stress, Sleep Quality, Social Support
+        const RUBRICS = {
+            stress: {
+                title: 'Stress Level Rubric (1 = Minimal, 10 = Extremely High)',
+                subtitle: 'Select the number that best reflects your current overall stress burden.',
+                items: [
+                    '1 — No stress; feeling calm and in control',
+                    '2 — Very low stress; minor daily pressures',
+                    '3 — Low stress; manageable with routine coping',
+                    '4 — Slight stress; occasional worry or tension',
+                    '5 — Moderate stress; noticeable and affects concentration',
+                    '6 — Moderately high stress; disrupts sleep and focus occasionally',
+                    '7 — High stress; persistent worry and reduced functioning',
+                    '8 — Very high stress; daily difficulties coping and reduced energy',
+                    '9 — Severe stress; significant impairment in functioning',
+                    '10 — Extreme stress; crisis-level, consider urgent professional help'
+                ]
+            },
+            sleep: {
+                title: 'Sleep Quality Rubric (1 = Very Poor, 10 = Excellent)',
+                subtitle: 'Choose the number that best describes your recent sleep pattern and restfulness.',
+                items: [
+                    '1 — Very poor: hardly any restful sleep, frequent awakenings',
+                    '2 — Poor: minimal restorative sleep, daytime fatigue',
+                    '3 — Below average: frequent disturbances, feels unrested',
+                    '4 — Somewhat poor: inconsistent sleep schedule, tired mornings',
+                    '5 — Fair: occasional nights of poor sleep but generally functional',
+                    '6 — Slightly above average: mostly restful with some disturbances',
+                    '7 — Good: regular sleep, generally refreshed',
+                    '8 — Very good: consistent, restorative sleep most nights',
+                    '9 — Excellent: nearly uninterrupted, high-quality rest',
+                    '10 — Optimal: restorative, consistent sleep and daytime alertness'
+                ]
+            },
+            social: {
+                title: 'Social Support Rubric (1 = Isolated, 10 = Strong Support)',
+                subtitle: 'Select the level that best reflects the depth and availability of your social supports.',
+                items: [
+                    '1 — Isolated: minimal or no reliable social contacts',
+                    '2 — Very limited: rare meaningful connections',
+                    '3 — Sparse: occasional social contact, limited trusted supports',
+                    '4 — Limited: some social contact but few reliable confidants',
+                    '5 — Moderate: some friends/family, but inconsistent support',
+                    '6 — Somewhat supportive: several contacts who help occasionally',
+                    '7 — Supportive: steady friends/family who are available',
+                    '8 — Very supportive: multiple close relationships and resources',
+                    '9 — Strong support: reliable network for emotional/practical help',
+                    '10 — Exceptional: wide, dependable support system and engagement'
+                ]
+            }
+        };
+
+        function openRubricModal(key) {
+            const rubric = RUBRICS[key];
+            if (!rubric) return;
+            const modal = document.getElementById('rubricModal');
+            document.getElementById('rubricTitle').textContent = rubric.title;
+            document.getElementById('rubricSubtitle').textContent = rubric.subtitle;
+            const list = document.getElementById('rubricList');
+            list.innerHTML = '';
+            rubric.items.forEach((text, idx) => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${idx + 1}.</strong> ${text}`;
+                list.appendChild(li);
+            });
+            modal.style.display = 'flex';
+            modal.setAttribute('aria-hidden','false');
+            // focus close button for accessibility
+            document.getElementById('rubricClose').focus();
+        }
+
+        function closeRubricModal() {
+            const modal = document.getElementById('rubricModal');
+            modal.style.display = 'none';
+            modal.setAttribute('aria-hidden','true');
+        }
+
+        // Attach handlers to rubric buttons
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest && e.target.closest('[data-rubric]');
+            if (btn) {
+                const key = btn.getAttribute('data-rubric');
+                openRubricModal(key);
+            }
+        });
+
+        document.getElementById('rubricClose').addEventListener('click', closeRubricModal);
+        // Close when clicking outside content
+        document.getElementById('rubricModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('rubricModal')) closeRubricModal();
+        });
+
+        // Close with ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeRubricModal();
+        });
+    </script>
+</body>
+</html>

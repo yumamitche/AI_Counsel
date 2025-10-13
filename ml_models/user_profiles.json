@@ -1,0 +1,2786 @@
+{
+  "test_user": {
+    "created": "2025-09-07T20:40:01.883971",
+    "sessions": [
+      {
+        "timestamp": "2025-09-07T20:40:01.883982",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "recommended_approaches": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "predicted_emotions": [],
+            "numeric_analysis": {
+              "stress_risk": "high",
+              "sleep_concern": "high",
+              "social_isolation": "low",
+              "overall_wellness": "low",
+              "dynamic_insights": {
+                "user_baseline_adapted": false,
+                "thresholds_used": {
+                  "stress": 7,
+                  "sleep": 4,
+                  "social": 4
+                },
+                "wellness_trend": "no_history"
+              }
+            }
+          },
+          "dynamic_adaptations": {
+            "personalization_level": "basic",
+            "adapted_recommendations": false,
+            "learning_insights": {}
+          },
+          "sentiment_scores": {
+            "neg": 0.393,
+            "neu": 0.567,
+            "pos": 0.04,
+            "compound": -0.8627
+          }
+        },
+        "responses": {
+          "current_mood": "I feel anxious and overwhelmed with work",
+          "stress_level": 8,
+          "sleep_quality": 3,
+          "social_support": 6,
+          "emotional_state": "Stressed and worried about deadlines",
+          "challenges": "Too much work, not enough time",
+          "goals": "Better work-life balance and stress management"
+        },
+        "session_id": "session_1"
+      },
+      {
+        "timestamp": "2025-09-07T20:40:01.885615",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "recommended_approaches": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "predicted_emotions": [],
+            "numeric_analysis": {
+              "stress_risk": "low",
+              "sleep_concern": "low",
+              "social_isolation": "low",
+              "overall_wellness": "low",
+              "dynamic_insights": {
+                "user_baseline_adapted": true,
+                "thresholds_used": {
+                  "stress": 10.0,
+                  "sleep": 1.0,
+                  "social": 4.0
+                },
+                "wellness_trend": "insufficient_data"
+              }
+            }
+          },
+          "dynamic_adaptations": {
+            "personalization_level": "advanced",
+            "adapted_recommendations": true,
+            "learning_insights": {
+              "successful_approaches": [
+                "cbt",
+                "mindfulness"
+              ],
+              "preferred_techniques": [
+                "breathing",
+                "journaling"
+              ],
+              "optimal_timing": "morning",
+              "communication_style": "supportive"
+            }
+          },
+          "sentiment_scores": {
+            "neg": 0.393,
+            "neu": 0.567,
+            "pos": 0.04,
+            "compound": -0.8627
+          }
+        },
+        "responses": {
+          "current_mood": "I feel anxious and overwhelmed with work",
+          "stress_level": 8,
+          "sleep_quality": 3,
+          "social_support": 6,
+          "emotional_state": "Stressed and worried about deadlines",
+          "challenges": "Too much work, not enough time",
+          "goals": "Better work-life balance and stress management"
+        },
+        "session_id": "session_2"
+      }
+    ],
+    "preferences": {},
+    "progress_tracking": {},
+    "learning_metrics": {}
+  },
+  "e0298623-c011-47d3-82aa-018fc3ff2298": {
+    "created": "2025-09-08T11:55:35.699051",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T11:55:35.699057",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1015,
+            "models_active": 6
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "8d14bea4-6e31-4e74-adcc-0f349470f4db": {
+    "created": "2025-09-08T12:04:23.184788",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T12:04:23.184795",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [
+            "Social Isolation"
+          ],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1016,
+            "models_active": 6
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 3,
+          "sleep_quality": 7,
+          "social_support": 2,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "9c7fa5e3-094a-4b1f-b152-d31e8aaee7e2": {
+    "created": "2025-09-08T12:05:04.231890",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T12:05:04.231900",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1017,
+            "models_active": 6
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "64dce22a-aad2-43e4-adf0-2530775e97cd": {
+    "created": "2025-09-08T12:14:50.926567",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T12:14:50.926577",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1018,
+            "models_active": 6
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 7,
+          "sleep_quality": 7,
+          "social_support": 3,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "6f7be68c-de29-4e97-9bd1-67aabf38b12e": {
+    "created": "2025-09-08T12:18:45.455956",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T12:18:45.455965",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1019,
+            "models_active": 6
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "d335e19a-d46d-4190-b23d-cb3f75553799": {
+    "created": "2025-09-08T12:20:46.378752",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T12:20:46.378767",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1020,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "752d7acc-5c35-43ce-bc49-6f0a3aadfbd2": {
+    "created": "2025-09-08T12:20:56.372118",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T12:20:56.372121",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1021,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "ef78d3ba-24e9-43fd-ac32-e1a8e9777427": {
+    "created": "2025-09-08T12:39:40.503907",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T12:39:40.503916",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1022,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "9510c2da-7ba9-478d-9274-343841985f64": {
+    "created": "2025-09-08T12:50:01.244856",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T12:50:01.244862",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1023,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "399bd34a-8d2a-457c-b4a7-1979e90cea24": {
+    "created": "2025-09-08T13:09:10.178139",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T13:09:10.178159",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [
+            "Extreme Stress"
+          ],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1024,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.52,
+            "neu": 0.289,
+            "pos": 0.191,
+            "compound": -0.6908
+          }
+        },
+        "responses": {
+          "current_mood": "i am upset",
+          "stress_level": 9,
+          "sleep_quality": 4,
+          "social_support": 6,
+          "life_changes": "i have been abused by my parents",
+          "emotional_state": "i am sad",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "been abused",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "friends"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "9f888e16-f904-4967-a61a-f73ac6cedd87": {
+    "created": "2025-09-08T13:43:07.505656",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T13:43:07.505664",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1025,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 7,
+          "sleep_quality": 8,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "514ca78a-831f-4c73-9708-877f73231600": {
+    "created": "2025-09-08T13:49:55.896273",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T13:49:55.896286",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1026,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "4b9e418f-e27a-4182-a99d-5deabc440b17": {
+    "created": "2025-09-08T14:21:08.892343",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T14:21:08.892353",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1027,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "f32d7a50-1e41-464b-a05f-565810c1f1e5": {
+    "created": "2025-09-08T15:04:14.266679",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:04:14.266686",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1028,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "9653c067-2620-4201-a85d-e875ab932c44": {
+    "created": "2025-09-08T15:04:38.973157",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:04:38.973168",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1029,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.756,
+            "neu": 0.244,
+            "pos": 0.0,
+            "compound": -0.4767
+          }
+        },
+        "responses": {
+          "current_mood": "i am sad",
+          "stress_level": 5,
+          "sleep_quality": 7,
+          "social_support": 3,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "d79fe96e-2d17-4eef-b7b8-bfbc11152c47": {
+    "created": "2025-09-08T15:10:53.950087",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:10:53.950091",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1030,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.494,
+            "neu": 0.235,
+            "pos": 0.271,
+            "compound": -0.5859
+          }
+        },
+        "responses": {
+          "current_mood": "i am sad",
+          "stress_level": 6,
+          "sleep_quality": 4,
+          "social_support": 7,
+          "life_changes": "i am abused",
+          "emotional_state": "i am sad",
+          "coping_mechanisms": "",
+          "goals": "i want to be free",
+          "challenges": "no",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "family"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "3463ca64-a745-42fe-b3a5-5be1b02e586b": {
+    "created": "2025-09-08T15:11:18.719906",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:11:18.719910",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1031,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.494,
+            "neu": 0.235,
+            "pos": 0.271,
+            "compound": -0.5859
+          }
+        },
+        "responses": {
+          "current_mood": "i am sad",
+          "stress_level": 6,
+          "sleep_quality": 4,
+          "social_support": 7,
+          "life_changes": "i am abused",
+          "emotional_state": "i am sad",
+          "coping_mechanisms": "",
+          "goals": "i want to be free",
+          "challenges": "no",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "family"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "c0c95a57-7012-44f7-b3e5-21e35cd1bcdb": {
+    "created": "2025-09-08T15:12:42.544563",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:12:42.544581",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1032,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.494,
+            "neu": 0.235,
+            "pos": 0.271,
+            "compound": -0.5859
+          }
+        },
+        "responses": {
+          "current_mood": "i am sad",
+          "stress_level": 6,
+          "sleep_quality": 4,
+          "social_support": 7,
+          "life_changes": "i am abused",
+          "emotional_state": "i am sad",
+          "coping_mechanisms": "",
+          "goals": "i want to be free",
+          "challenges": "no",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "family"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "4f5709bc-ab21-44a9-8c09-3c5447497653": {
+    "created": "2025-09-08T15:14:08.735003",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:14:08.735011",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1033,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 7,
+          "sleep_quality": 4,
+          "social_support": 7,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "1b402c84-affa-492a-8690-5f14cc6d737a": {
+    "created": "2025-09-08T15:16:31.468993",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:16:31.468997",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1034,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 7,
+          "sleep_quality": 4,
+          "social_support": 7,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "0517bb14-6772-464d-ba47-58c1411ca405": {
+    "created": "2025-09-08T15:19:21.647164",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:19:21.647171",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1035,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "cce09998-1fb0-4477-b844-17f422093415": {
+    "created": "2025-09-08T15:22:07.223065",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:22:07.223073",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1036,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "614cd17c-3b13-4731-a0a0-75ffba94d96a": {
+    "created": "2025-09-08T15:22:57.504836",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:22:57.504840",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1037,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.475,
+            "neu": 0.339,
+            "pos": 0.186,
+            "compound": -0.6249
+          }
+        },
+        "responses": {
+          "current_mood": "i am been abused",
+          "stress_level": 3,
+          "sleep_quality": 6,
+          "social_support": 7,
+          "life_changes": "i am mother",
+          "emotional_state": "i am sad",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "i am shy",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "no"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "01bedbb1-a8ac-423b-8cf2-aee934ffd657": {
+    "created": "2025-09-08T15:31:26.594183",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:31:26.594191",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1038,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.627,
+            "neu": 0.373,
+            "pos": 0.0,
+            "compound": -0.8127
+          }
+        },
+        "responses": {
+          "current_mood": "i am upset",
+          "stress_level": 4,
+          "sleep_quality": 7,
+          "social_support": 3,
+          "life_changes": "i am sad",
+          "emotional_state": "i am sad",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "none",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "no"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "055ef593-40e0-4a04-b0d4-92bb8a50a875": {
+    "created": "2025-09-08T15:38:43.349666",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:38:43.349673",
+        "analysis": {
+          "overall_sentiment": "positive",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1039,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.136,
+            "neu": 0.624,
+            "pos": 0.24,
+            "compound": 0.965
+          }
+        },
+        "responses": {
+          "current_mood": "Right now, I feel a mix of calm and mild restlessness, like I should be doing more but also need a break. My mind is busy with thoughts about responsibilities and upcoming plans. Emotionally, I\u2019d rate myself at about a 5/10\u2014balanced but not fully at peace.",
+          "stress_level": 7,
+          "sleep_quality": 3,
+          "social_support": 7,
+          "life_changes": "Recently, I\u2019ve had to adjust to changes that disrupted my usual routine, which has been a bit unsettling. It forced me to adapt faster and step outside my comfort zone. While challenging, it\u2019s also opening doors for growth and self-reflection.",
+          "emotional_state": "Overall, I feel somewhat stable but also occasionally weighed down by uncertainty. I\u2019m hopeful in some areas but overwhelmed in others, especially when progress feels slow. These feelings come from balancing personal expectations with external pressures.",
+          "coping_mechanisms": "",
+          "goals": "My main goals are to feel more emotionally balanced, improve consistency in daily routines, and make progress on personal and professional projects. Success would look like reduced stress, clearer focus, and stronger motivation. I also want to build healthier coping mechanisms for when setbacks happen.",
+          "challenges": "I\u2019m struggling with maintaining motivation when things feel repetitive or draining. Relationships and internal self-doubt sometimes affect my confidence. These challenges impact my daily life by lowering productivity and leaving me mentally tired.",
+          "previous_counseling": "I\u2019ve tried some counseling before, which helped me open up but sometimes felt too structured. What worked well was having someone listen without judgment. I\u2019d like to try a more flexible, goal-focused approach this time.",
+          "medication": "I\u2019m not currently on medication, so I rely on natural coping strategies like rest, reflection, or light activities. In the past, I\u2019ve considered it but preferred lifestyle adjustments first. I\u2019m open to exploring options if my mental state worsens.",
+          "support_system": "I have a few close people I can lean on, but I sometimes hesitate to ask for help. My relationships are supportive, but I don\u2019t always express my needs clearly. Building comfort with seeking support is something I\u2019d like to improve."
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "a5c503c7-b970-4981-a96c-05d8e24d0b98": {
+    "created": "2025-09-08T15:42:42.229970",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:42:42.229978",
+        "analysis": {
+          "overall_sentiment": "positive",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1040,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.136,
+            "neu": 0.624,
+            "pos": 0.24,
+            "compound": 0.965
+          }
+        },
+        "responses": {
+          "current_mood": "Right now, I feel a mix of calm and mild restlessness, like I should be doing more but also need a break. My mind is busy with thoughts about responsibilities and upcoming plans. Emotionally, I\u2019d rate myself at about a 5/10\u2014balanced but not fully at peace.",
+          "stress_level": 7,
+          "sleep_quality": 3,
+          "social_support": 7,
+          "life_changes": "Recently, I\u2019ve had to adjust to changes that disrupted my usual routine, which has been a bit unsettling. It forced me to adapt faster and step outside my comfort zone. While challenging, it\u2019s also opening doors for growth and self-reflection.",
+          "emotional_state": "Overall, I feel somewhat stable but also occasionally weighed down by uncertainty. I\u2019m hopeful in some areas but overwhelmed in others, especially when progress feels slow. These feelings come from balancing personal expectations with external pressures.",
+          "coping_mechanisms": "",
+          "goals": "My main goals are to feel more emotionally balanced, improve consistency in daily routines, and make progress on personal and professional projects. Success would look like reduced stress, clearer focus, and stronger motivation. I also want to build healthier coping mechanisms for when setbacks happen.",
+          "challenges": "I\u2019m struggling with maintaining motivation when things feel repetitive or draining. Relationships and internal self-doubt sometimes affect my confidence. These challenges impact my daily life by lowering productivity and leaving me mentally tired.",
+          "previous_counseling": "I\u2019ve tried some counseling before, which helped me open up but sometimes felt too structured. What worked well was having someone listen without judgment. I\u2019d like to try a more flexible, goal-focused approach this time.",
+          "medication": "I\u2019m not currently on medication, so I rely on natural coping strategies like rest, reflection, or light activities. In the past, I\u2019ve considered it but preferred lifestyle adjustments first. I\u2019m open to exploring options if my mental state worsens.",
+          "support_system": "I have a few close people I can lean on, but I sometimes hesitate to ask for help. My relationships are supportive, but I don\u2019t always express my needs clearly. Building comfort with seeking support is something I\u2019d like to improve."
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "4ab93c50-f5cb-4426-9c9f-f57edf7fda10": {
+    "created": "2025-09-08T15:47:21.220922",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:47:21.220934",
+        "analysis": {
+          "overall_sentiment": "positive",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1041,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.136,
+            "neu": 0.624,
+            "pos": 0.24,
+            "compound": 0.965
+          }
+        },
+        "responses": {
+          "current_mood": "Right now, I feel a mix of calm and mild restlessness, like I should be doing more but also need a break. My mind is busy with thoughts about responsibilities and upcoming plans. Emotionally, I\u2019d rate myself at about a 5/10\u2014balanced but not fully at peace.",
+          "stress_level": 7,
+          "sleep_quality": 4,
+          "social_support": 7,
+          "life_changes": "Overall, I feel somewhat stable but also occasionally weighed down by uncertainty. I\u2019m hopeful in some areas but overwhelmed in others, especially when progress feels slow. These feelings come from balancing personal expectations with external pressures.",
+          "emotional_state": "Overall, I feel somewhat stable but also occasionally weighed down by uncertainty. I\u2019m hopeful in some areas but overwhelmed in others, especially when progress feels slow. These feelings come from balancing personal expectations with external pressures.",
+          "coping_mechanisms": "",
+          "goals": "My main goals are to feel more emotionally balanced, improve consistency in daily routines, and make progress on personal and professional projects. Success would look like reduced stress, clearer focus, and stronger motivation. I also want to build healthier coping mechanisms for when setbacks happen.",
+          "challenges": "I\u2019m struggling with maintaining motivation when things feel repetitive or draining. Relationships and internal self-doubt sometimes affect my confidence. These challenges impact my daily life by lowering productivity and leaving me mentally tired.",
+          "previous_counseling": "I\u2019ve tried some counseling before, which helped me open up but sometimes felt too structured. What worked well was having someone listen without judgment. I\u2019d like to try a more flexible, goal-focused approach this time.",
+          "medication": "I\u2019m not currently on medication, so I rely on natural coping strategies like rest, reflection, or light activities. In the past, I\u2019ve considered it but preferred lifestyle adjustments first. I\u2019m open to exploring options if my mental state worsens.",
+          "support_system": "I have a few close people I can lean on, but I sometimes hesitate to ask for help. My relationships are supportive, but I don\u2019t always express my needs clearly. Building comfort with seeking support is something I\u2019d like to improve."
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "99275e5f-d170-40c2-b51f-690df22610cc": {
+    "created": "2025-09-08T15:53:38.477250",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:53:38.477262",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1042,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.574,
+            "neu": 0.203,
+            "pos": 0.223,
+            "compound": -0.6369
+          }
+        },
+        "responses": {
+          "current_mood": "i am upset",
+          "stress_level": 7,
+          "sleep_quality": 8,
+          "social_support": 4,
+          "life_changes": "i am sad",
+          "emotional_state": "negative",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "no",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "family"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "b9a8ffe1-4c7f-43c4-b6cb-160267414e3e": {
+    "created": "2025-09-08T15:58:49.287835",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:58:49.287850",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1043,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.627,
+            "neu": 0.373,
+            "pos": 0.0,
+            "compound": -0.8127
+          }
+        },
+        "responses": {
+          "current_mood": "i am upset",
+          "stress_level": 3,
+          "sleep_quality": 8,
+          "social_support": 4,
+          "life_changes": "i am adopt",
+          "emotional_state": "i am sad",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "none",
+          "previous_counseling": "none",
+          "medication": "no",
+          "support_system": "family"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "09e5b5d2-77dc-4faa-acdb-d11da45e9b85": {
+    "created": "2025-09-08T15:59:06.747244",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T15:59:06.747249",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1044,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.627,
+            "neu": 0.373,
+            "pos": 0.0,
+            "compound": -0.8127
+          }
+        },
+        "responses": {
+          "current_mood": "i am upset",
+          "stress_level": 3,
+          "sleep_quality": 8,
+          "social_support": 4,
+          "life_changes": "i am adopt",
+          "emotional_state": "i am sad",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "none",
+          "previous_counseling": "none",
+          "medication": "no",
+          "support_system": "family"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "87642419-2ac1-4be0-8681-eb36b0cc54dd": {
+    "created": "2025-09-08T16:02:41.635354",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:02:41.635365",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1045,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "69959d04-325e-4215-9d65-c8a53c7df689": {
+    "created": "2025-09-08T16:05:35.618242",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:05:35.618249",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1046,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "bfeda382-8305-4578-b4f3-9b9e0f929d87": {
+    "created": "2025-09-08T16:07:05.830826",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:07:05.830840",
+        "analysis": {
+          "overall_sentiment": "positive",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1047,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.136,
+            "neu": 0.624,
+            "pos": 0.24,
+            "compound": 0.965
+          }
+        },
+        "responses": {
+          "current_mood": "Right now, I feel a mix of calm and mild restlessness, like I should be doing more but also need a break. My mind is busy with thoughts about responsibilities and upcoming plans. Emotionally, I\u2019d rate myself at about a 5/10\u2014balanced but not fully at peace.",
+          "stress_level": 4,
+          "sleep_quality": 3,
+          "social_support": 7,
+          "life_changes": "Recently, I\u2019ve had to adjust to changes that disrupted my usual routine, which has been a bit unsettling. It forced me to adapt faster and step outside my comfort zone. While challenging, it\u2019s also opening doors for growth and self-reflection.",
+          "emotional_state": "Overall, I feel somewhat stable but also occasionally weighed down by uncertainty. I\u2019m hopeful in some areas but overwhelmed in others, especially when progress feels slow. These feelings come from balancing personal expectations with external pressures.",
+          "coping_mechanisms": "",
+          "goals": "My main goals are to feel more emotionally balanced, improve consistency in daily routines, and make progress on personal and professional projects. Success would look like reduced stress, clearer focus, and stronger motivation. I also want to build healthier coping mechanisms for when setbacks happen.",
+          "challenges": "I\u2019m struggling with maintaining motivation when things feel repetitive or draining. Relationships and internal self-doubt sometimes affect my confidence. These challenges impact my daily life by lowering productivity and leaving me mentally tired.",
+          "previous_counseling": "I\u2019ve tried some counseling before, which helped me open up but sometimes felt too structured. What worked well was having someone listen without judgment. I\u2019d like to try a more flexible, goal-focused approach this time.",
+          "medication": "I\u2019m not currently on medication, so I rely on natural coping strategies like rest, reflection, or light activities. In the past, I\u2019ve considered it but preferred lifestyle adjustments first. I\u2019m open to exploring options if my mental state worsens.",
+          "support_system": "I have a few close people I can lean on, but I sometimes hesitate to ask for help. My relationships are supportive, but I don\u2019t always express my needs clearly. Building comfort with seeking support is something I\u2019d like to improve."
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "1520a301-c1e3-4571-b6b5-4eae4a585220": {
+    "created": "2025-09-08T16:08:35.188873",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:08:35.188877",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1048,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "12cd6f30-9c50-4571-a7c7-4032e7c1a2b6": {
+    "created": "2025-09-08T16:14:07.630632",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:14:07.630640",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1049,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "92147c4f-5df7-4f79-b6fb-7ce1ad4fc73f": {
+    "created": "2025-09-08T16:16:22.625247",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:16:22.625349",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1051,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 7,
+          "social_support": 4,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": "family"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "fa64eb1b-e228-494f-b7e9-0a6b6a11bc73": {
+    "created": "2025-09-08T16:16:32.551458",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:16:32.551462",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1051,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "ea92a119-488d-49dd-b504-ed16b7055ba1": {
+    "created": "2025-09-08T16:18:41.276392",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:18:41.276404",
+        "analysis": {
+          "overall_sentiment": "positive",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1052,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.136,
+            "neu": 0.624,
+            "pos": 0.24,
+            "compound": 0.965
+          }
+        },
+        "responses": {
+          "current_mood": "Right now, I feel a mix of calm and mild restlessness, like I should be doing more but also need a break. My mind is busy with thoughts about responsibilities and upcoming plans. Emotionally, I\u2019d rate myself at about a 5/10\u2014balanced but not fully at peace.",
+          "stress_level": 8,
+          "sleep_quality": 9,
+          "social_support": 6,
+          "life_changes": "Recently, I\u2019ve had to adjust to changes that disrupted my usual routine, which has been a bit unsettling. It forced me to adapt faster and step outside my comfort zone. While challenging, it\u2019s also opening doors for growth and self-reflection.",
+          "emotional_state": "Overall, I feel somewhat stable but also occasionally weighed down by uncertainty. I\u2019m hopeful in some areas but overwhelmed in others, especially when progress feels slow. These feelings come from balancing personal expectations with external pressures.",
+          "coping_mechanisms": "",
+          "goals": "My main goals are to feel more emotionally balanced, improve consistency in daily routines, and make progress on personal and professional projects. Success would look like reduced stress, clearer focus, and stronger motivation. I also want to build healthier coping mechanisms for when setbacks happen.",
+          "challenges": "I\u2019m struggling with maintaining motivation when things feel repetitive or draining. Relationships and internal self-doubt sometimes affect my confidence. These challenges impact my daily life by lowering productivity and leaving me mentally tired.",
+          "previous_counseling": "I\u2019m struggling with maintaining motivation when things feel repetitive or draining. Relationships and internal self-doubt sometimes affect my confidence. These challenges impact my daily life by lowering productivity and leaving me mentally tired.",
+          "medication": "I\u2019m not currently on medication, so I rely on natural coping strategies like rest, reflection, or light activities. In the past, I\u2019ve considered it but preferred lifestyle adjustments first. I\u2019m open to exploring options if my mental state worsens.",
+          "support_system": "I have a few close people I can lean on, but I sometimes hesitate to ask for help. My relationships are supportive, but I don\u2019t always express my needs clearly. Building comfort with seeking support is something I\u2019d like to improve."
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "14df9aa1-1132-4e19-9a41-f753d07bbe5e": {
+    "created": "2025-09-08T16:22:03.745884",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:22:03.745892",
+        "analysis": {
+          "overall_sentiment": "positive",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1053,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.136,
+            "neu": 0.624,
+            "pos": 0.24,
+            "compound": 0.965
+          }
+        },
+        "responses": {
+          "current_mood": "Right now, I feel a mix of calm and mild restlessness, like I should be doing more but also need a break. My mind is busy with thoughts about responsibilities and upcoming plans. Emotionally, I\u2019d rate myself at about a 5/10\u2014balanced but not fully at peace.",
+          "stress_level": 8,
+          "sleep_quality": 9,
+          "social_support": 6,
+          "life_changes": "Recently, I\u2019ve had to adjust to changes that disrupted my usual routine, which has been a bit unsettling. It forced me to adapt faster and step outside my comfort zone. While challenging, it\u2019s also opening doors for growth and self-reflection.",
+          "emotional_state": "Overall, I feel somewhat stable but also occasionally weighed down by uncertainty. I\u2019m hopeful in some areas but overwhelmed in others, especially when progress feels slow. These feelings come from balancing personal expectations with external pressures.",
+          "coping_mechanisms": "",
+          "goals": "My main goals are to feel more emotionally balanced, improve consistency in daily routines, and make progress on personal and professional projects. Success would look like reduced stress, clearer focus, and stronger motivation. I also want to build healthier coping mechanisms for when setbacks happen.",
+          "challenges": "I\u2019m struggling with maintaining motivation when things feel repetitive or draining. Relationships and internal self-doubt sometimes affect my confidence. These challenges impact my daily life by lowering productivity and leaving me mentally tired.",
+          "previous_counseling": "I\u2019m struggling with maintaining motivation when things feel repetitive or draining. Relationships and internal self-doubt sometimes affect my confidence. These challenges impact my daily life by lowering productivity and leaving me mentally tired.",
+          "medication": "I\u2019m not currently on medication, so I rely on natural coping strategies like rest, reflection, or light activities. In the past, I\u2019ve considered it but preferred lifestyle adjustments first. I\u2019m open to exploring options if my mental state worsens.",
+          "support_system": "I have a few close people I can lean on, but I sometimes hesitate to ask for help. My relationships are supportive, but I don\u2019t always express my needs clearly. Building comfort with seeking support is something I\u2019d like to improve."
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "3f3e6f50-26ca-4f38-aee0-98f2e6cc7c01": {
+    "created": "2025-09-08T16:32:42.311474",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:32:42.311480",
+        "analysis": {
+          "overall_sentiment": "positive",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1054,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.134,
+            "neu": 0.561,
+            "pos": 0.305,
+            "compound": 0.9847
+          }
+        },
+        "responses": {
+          "current_mood": "I feel neutral but with underlying tension, like I\u2019m holding back emotions. My thoughts jump between responsibilities and what I haven\u2019t finished yet. There\u2019s a sense of wanting peace but not fully achieving it.",
+          "stress_level": 8,
+          "sleep_quality": 3,
+          "social_support": 7,
+          "life_changes": "Some recent changes have shifted my daily flow and forced me to rethink priorities. They\u2019ve brought both stress and small opportunities for growth. Adjusting hasn\u2019t been easy, but I\u2019m slowly adapting.",
+          "emotional_state": "Emotionally, I feel a mix of cautious hope and quiet exhaustion. I\u2019m stable most of the time, but stress builds when I overthink. My feelings are shaped by uncertainty about the future.",
+          "coping_mechanisms": "",
+          "goals": "I want to be more consistent, motivated, and emotionally strong. A big goal is to balance self-care with productivity. Success would mean feeling proud of my progress instead of pressured by it.",
+          "challenges": "My main challenge is staying focused when setbacks happen. Self-doubt and overthinking often slow me down. These struggles affect my daily routine by draining energy and lowering confidence.",
+          "previous_counseling": "I\u2019ve had some counseling before, and the best part was feeling understood without judgment. What didn\u2019t work was when sessions felt too surface-level. This time, I\u2019d like deeper guidance with practical tools.",
+          "medication": "I\u2019m not taking medications right now. I manage with natural coping methods like rest, breathing, or distraction. Sometimes I wonder if medication could provide extra stability.",
+          "support_system": "I have people I can reach out to, but I don\u2019t always lean on them. My family and friends try to support me, but I struggle to open up fully. Asking for help feels uncomfortable, even when I need it."
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "1f4f75ed-6cb4-43d7-b3eb-46ea9f399375": {
+    "created": "2025-09-08T16:34:55.537642",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:34:55.537656",
+        "analysis": {
+          "overall_sentiment": "positive",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1055,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.134,
+            "neu": 0.561,
+            "pos": 0.305,
+            "compound": 0.9847
+          }
+        },
+        "responses": {
+          "current_mood": "I feel neutral but with underlying tension, like I\u2019m holding back emotions. My thoughts jump between responsibilities and what I haven\u2019t finished yet. There\u2019s a sense of wanting peace but not fully achieving it.",
+          "stress_level": 8,
+          "sleep_quality": 3,
+          "social_support": 7,
+          "life_changes": "Some recent changes have shifted my daily flow and forced me to rethink priorities. They\u2019ve brought both stress and small opportunities for growth. Adjusting hasn\u2019t been easy, but I\u2019m slowly adapting.",
+          "emotional_state": "Emotionally, I feel a mix of cautious hope and quiet exhaustion. I\u2019m stable most of the time, but stress builds when I overthink. My feelings are shaped by uncertainty about the future.",
+          "coping_mechanisms": "",
+          "goals": "I want to be more consistent, motivated, and emotionally strong. A big goal is to balance self-care with productivity. Success would mean feeling proud of my progress instead of pressured by it.",
+          "challenges": "My main challenge is staying focused when setbacks happen. Self-doubt and overthinking often slow me down. These struggles affect my daily routine by draining energy and lowering confidence.",
+          "previous_counseling": "I\u2019ve had some counseling before, and the best part was feeling understood without judgment. What didn\u2019t work was when sessions felt too surface-level. This time, I\u2019d like deeper guidance with practical tools.",
+          "medication": "I\u2019m not taking medications right now. I manage with natural coping methods like rest, breathing, or distraction. Sometimes I wonder if medication could provide extra stability.",
+          "support_system": "I have people I can reach out to, but I don\u2019t always lean on them. My family and friends try to support me, but I struggle to open up fully. Asking for help feels uncomfortable, even when I need it."
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "25c046fb-40fa-4a0f-b04b-67a1985d865a": {
+    "created": "2025-09-08T16:39:13.663075",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:39:13.663083",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1056,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "531af242-cc38-4dc9-9a34-65739fa502be": {
+    "created": "2025-09-08T16:41:07.516518",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:41:07.516523",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1057,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.517,
+            "neu": 0.291,
+            "pos": 0.192,
+            "compound": -0.6808
+          }
+        },
+        "responses": {
+          "current_mood": "i am stress",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "been abused",
+          "emotional_state": "i am sad",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "i am irritated",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "I have people I can reach out to, but I don\u2019t always lean on them. My family and friends try to support me, but I struggle to open up fully. Asking for help feels uncomfortable, even when I need it."
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "260ef5b7-f0bf-489e-a565-b3b7e27ce20e": {
+    "created": "2025-09-08T16:47:39.310586",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:47:39.310594",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1058,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.669,
+            "neu": 0.331,
+            "pos": 0.0,
+            "compound": -0.9022
+          }
+        },
+        "responses": {
+          "current_mood": "i am upset",
+          "stress_level": 7,
+          "sleep_quality": 3,
+          "social_support": 8,
+          "life_changes": "i am abused",
+          "emotional_state": "i am sad and negative",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "none",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "boyfriend"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "25d3ec7c-fe65-4e95-b3c0-7fc9f485af86": {
+    "created": "2025-09-08T16:51:44.882276",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:51:44.882281",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1059,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.624,
+            "neu": 0.376,
+            "pos": 0.0,
+            "compound": -0.8075
+          }
+        },
+        "responses": {
+          "current_mood": "i am upset",
+          "stress_level": 7,
+          "sleep_quality": 4,
+          "social_support": 8,
+          "life_changes": "been abused",
+          "emotional_state": "been irritated",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "none",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "family"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "3680368e-ae14-4785-9c6d-286daab15e1e": {
+    "created": "2025-09-08T16:53:19.601468",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:53:19.601473",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1060,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.624,
+            "neu": 0.376,
+            "pos": 0.0,
+            "compound": -0.8075
+          }
+        },
+        "responses": {
+          "current_mood": "i am upset",
+          "stress_level": 7,
+          "sleep_quality": 4,
+          "social_support": 8,
+          "life_changes": "been abused",
+          "emotional_state": "been irritated",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "none",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "family"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "9b68da53-cef2-4ffd-af67-36827454447f": {
+    "created": "2025-09-08T16:54:23.215946",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:54:23.215956",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1061,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.624,
+            "neu": 0.376,
+            "pos": 0.0,
+            "compound": -0.8075
+          }
+        },
+        "responses": {
+          "current_mood": "i am upset",
+          "stress_level": 7,
+          "sleep_quality": 4,
+          "social_support": 8,
+          "life_changes": "been abused",
+          "emotional_state": "been irritated",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "none",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "family"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "f5d3e19d-796b-4d23-8a10-feed59941cd9": {
+    "created": "2025-09-08T16:57:09.146614",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:57:09.146624",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1062,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "24993eb0-4e00-4030-863b-0825da049458": {
+    "created": "2025-09-08T16:59:01.228145",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T16:59:01.228154",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1063,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.0,
+            "neu": 1.0,
+            "pos": 0.0,
+            "compound": 0.0
+          }
+        },
+        "responses": {
+          "current_mood": "none",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "none",
+          "emotional_state": "none",
+          "coping_mechanisms": "",
+          "goals": "none",
+          "challenges": "none",
+          "previous_counseling": "none",
+          "medication": "none",
+          "support_system": "none"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "14206e4e-7461-4182-8a53-6b35b7ddc6f7": {
+    "created": "2025-09-08T17:22:36.711012",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T17:22:36.711015",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1064,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "feefcddb-0d3a-4d85-9c77-52f6240936ec": {
+    "created": "2025-09-08T17:30:50.581415",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T17:30:50.581419",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1065,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "edcfe835-b614-4ba6-87a4-5bc925356167": {
+    "created": "2025-09-08T17:30:59.940415",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T17:30:59.940422",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1066,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "7b02c08f-e013-45cc-9c18-437e9ab219e4": {
+    "created": "2025-09-08T18:45:16.172681",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T18:45:16.172704",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1067,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 1.0,
+            "neu": 0.0,
+            "pos": 0.0,
+            "compound": -0.7783
+          }
+        },
+        "responses": {
+          "current_mood": "no",
+          "stress_level": 5,
+          "sleep_quality": 6,
+          "social_support": 5,
+          "life_changes": "no",
+          "emotional_state": "no",
+          "coping_mechanisms": "",
+          "goals": "no",
+          "challenges": "no",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "no"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "efec89bb-1bc1-4061-843b-1a1ed42ce391": {
+    "created": "2025-09-08T19:06:02.392331",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T19:06:02.392346",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1069,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": "no"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "b1ba9613-dee6-4f74-a9d0-4570fa0789b6": {
+    "created": "2025-09-08T19:37:40.920381",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T19:37:40.920386",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1069,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.526,
+            "neu": 0.226,
+            "pos": 0.248,
+            "compound": -0.4019
+          }
+        },
+        "responses": {
+          "current_mood": "i am upset",
+          "stress_level": 4,
+          "sleep_quality": 7,
+          "social_support": 3,
+          "life_changes": "no",
+          "emotional_state": "no",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "no",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "family"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "05b1ca14-7e25-4627-8b64-5ddc39119bad": {
+    "created": "2025-09-08T19:47:49.341087",
+    "sessions": [
+      {
+        "timestamp": "2025-09-08T19:47:49.341092",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1070,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.363,
+            "neu": 0.372,
+            "pos": 0.265,
+            "compound": -0.2732
+          }
+        },
+        "responses": {
+          "current_mood": "i am upset because of my groupmate",
+          "stress_level": 8,
+          "sleep_quality": 3,
+          "social_support": 5,
+          "life_changes": "my groupmate is dumbbell",
+          "emotional_state": "i am irritated easily",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "no",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "friends"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "5ea1e762-3333-427c-833e-df7bdc0d40f8": {
+    "created": "2025-09-10T10:53:03.164322",
+    "sessions": [
+      {
+        "timestamp": "2025-09-10T10:53:03.164346",
+        "analysis": {
+          "overall_sentiment": "positive",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1071,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.248,
+            "neu": 0.436,
+            "pos": 0.315,
+            "compound": 0.3353
+          }
+        },
+        "responses": {
+          "current_mood": "i am a little bit upset with my friend",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "i am abused by my boyfriend",
+          "emotional_state": "i am stress",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "financial",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "no"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "980129f4-1f4d-49b5-8877-008c207ee4f8": {
+    "created": "2025-09-10T11:28:13.289350",
+    "sessions": [
+      {
+        "timestamp": "2025-09-10T11:28:13.289364",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [
+            "Extreme Stress",
+            "Social Isolation"
+          ],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1073,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.186,
+            "neu": 0.654,
+            "pos": 0.16,
+            "compound": -0.2023
+          }
+        },
+        "responses": {
+          "current_mood": "i am sad and upset for everything happening in my life right now",
+          "stress_level": 10,
+          "sleep_quality": 3,
+          "social_support": 2,
+          "life_changes": "i am very pressured to my studies",
+          "emotional_state": "i am emotional in small things",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "financial and health issues",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "family and SUNGHOON"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "cc55d9cb-c627-48db-859f-2cb8226f3de0": {
+    "created": "2025-09-10T11:33:50.330968",
+    "sessions": [
+      {
+        "timestamp": "2025-09-10T11:33:50.330979",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1073,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.38,
+            "neu": 0.4,
+            "pos": 0.22,
+            "compound": -0.34
+          }
+        },
+        "responses": {
+          "current_mood": "i am upset",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "been abused",
+          "emotional_state": "crying lady",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "financial issue",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "family"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "5d8b8f47-0adf-46ef-95fd-c20a6b51d1fb": {
+    "created": "2025-09-10T12:00:08.443437",
+    "sessions": [
+      {
+        "timestamp": "2025-09-10T12:00:08.443455",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1074,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.35,
+            "neu": 0.383,
+            "pos": 0.268,
+            "compound": -0.3612
+          }
+        },
+        "responses": {
+          "current_mood": "i am sad",
+          "stress_level": 8,
+          "sleep_quality": 3,
+          "social_support": 8,
+          "life_changes": "i have been abused",
+          "emotional_state": "i am emotional",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "abused by my boyfriend",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "friend"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "eda6cf40-1728-4c93-85bd-1245a547c7f4": {
+    "created": "2025-09-10T12:50:13.333671",
+    "sessions": [
+      {
+        "timestamp": "2025-09-10T12:50:13.333692",
+        "analysis": {
+          "overall_sentiment": "positive",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1075,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.116,
+            "neu": 0.667,
+            "pos": 0.218,
+            "compound": 0.3182
+          }
+        },
+        "responses": {
+          "current_mood": "i am upset for everything",
+          "stress_level": 7,
+          "sleep_quality": 3,
+          "social_support": 8,
+          "life_changes": "i am abused by my partner",
+          "emotional_state": "too emotional for everything",
+          "coping_mechanisms": "",
+          "goals": "to be free from my partner",
+          "challenges": "financial and mental issues",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "family and friends"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "6ccb1918-6ba7-4d1e-8056-7bd3ba538817": {
+    "created": "2025-09-10T13:29:15.893530",
+    "sessions": [
+      {
+        "timestamp": "2025-09-10T13:29:15.893540",
+        "analysis": {
+          "overall_sentiment": "positive",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1076,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.226,
+            "neu": 0.453,
+            "pos": 0.321,
+            "compound": 0.3612
+          }
+        },
+        "responses": {
+          "current_mood": "i am sad because my husband abandon me",
+          "stress_level": 7,
+          "sleep_quality": 4,
+          "social_support": 7,
+          "life_changes": "i have been abused and neglect by my husband",
+          "emotional_state": "i am too emotional",
+          "coping_mechanisms": "",
+          "goals": "to be free and positive",
+          "challenges": "mental health",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "children"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "9dab1af3-7f6d-4e58-ab2b-e201f45267b5": {
+    "created": "2025-09-15T13:57:46.630902",
+    "sessions": [
+      {
+        "timestamp": "2025-09-15T13:57:46.630910",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1077,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.434,
+            "neu": 0.488,
+            "pos": 0.078,
+            "compound": -0.8075
+          }
+        },
+        "responses": {
+          "current_mood": "i am sad and too sensitive lately",
+          "stress_level": 7,
+          "sleep_quality": 4,
+          "social_support": 8,
+          "life_changes": "i am been abused by my boyfriend",
+          "emotional_state": "too sad and emotional",
+          "coping_mechanisms": "",
+          "goals": "to be free",
+          "challenges": "none",
+          "previous_counseling": "no",
+          "medication": "no",
+          "support_system": "family"
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "be26046e-2519-429a-8492-a992bfdd612f": {
+    "created": "2025-10-03T08:29:09.232903",
+    "sessions": [
+      {
+        "timestamp": "2025-10-03T08:29:09.232915",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1079,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.394,
+            "neu": 0.523,
+            "pos": 0.083,
+            "compound": -0.9201
+          }
+        },
+        "responses": {
+          "current_mood": "Emotionally strained, with lingering concerns from VAWC situations.",
+          "stress_level": 3,
+          "sleep_quality": 8,
+          "social_support": 4,
+          "life_changes": "Increased exposure to VAWC cases, raising emotional burden.",
+          "emotional_state": "Stable but vulnerable to emotional fatigue.",
+          "coping_mechanisms": "",
+          "goals": "Maintain balance, manage stress, and build healthier coping skills.",
+          "challenges": "Secondary trauma and fatigue from VAWC exposure.",
+          "previous_counseling": "Counseling provided relief through active listening but lacked follow-up support.",
+          "medication": "None.",
+          "support_system": "Support from friends, family, and colleagues, but professional assistance remains limited."
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "97c8b75d-a52f-42de-9d53-1bda88029d28": {
+    "created": "2025-10-03T12:54:20.053823",
+    "sessions": [
+      {
+        "timestamp": "2025-10-03T12:54:20.053828",
+        "analysis": {
+          "overall_sentiment": "neutral",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1079,
+            "models_active": 3
+          }
+        },
+        "responses": {
+          "current_mood": "",
+          "stress_level": 5,
+          "sleep_quality": 5,
+          "social_support": 5,
+          "life_changes": "",
+          "emotional_state": "",
+          "coping_mechanisms": "",
+          "goals": "",
+          "challenges": "",
+          "previous_counseling": "",
+          "medication": "",
+          "support_system": ""
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  },
+  "da167445-519b-4258-9c7a-3728cb7b09e0": {
+    "created": "2025-10-13T13:37:57.823886",
+    "sessions": [
+      {
+        "timestamp": "2025-10-13T13:37:57.823912",
+        "analysis": {
+          "overall_sentiment": "negative",
+          "emotional_indicators": [],
+          "risk_factors": [],
+          "strengths": [],
+          "confidence_score": 0.0,
+          "ml_insights": {
+            "ml_available": true,
+            "total_sessions": 1080,
+            "models_active": 3
+          },
+          "sentiment_scores": {
+            "neg": 0.284,
+            "neu": 0.501,
+            "pos": 0.216,
+            "compound": -0.9442
+          }
+        },
+        "responses": {
+          "current_mood": "During the session, the client appeared emotionally fragile but cooperative. She reported feeling relieved to be in a safe environment yet expressed ongoing fear and uncertainty about her future. The client mentioned episodes of sadness and anxiety, often triggered by memories of past abuse. She described feeling physically exhausted and emotionally drained but also expressed a desire to recover and move forward.",
+          "stress_level": 3,
+          "sleep_quality": 4,
+          "social_support": 4,
+          "life_changes": "The client recently left an abusive relationship and is currently residing in a temporary shelter. She reported experiencing both relief and anxiety following her separation. The transition has required major adjustments in her daily life, including dependence on external support systems and adapting to a new environment.",
+          "emotional_state": "Client presents as emotionally fragile but cooperative during the interview. Expressed sadness, fear, and guilt, alternating with moments of hopefulness. Reports intrusive thoughts and flashbacks related to the abuse.",
+          "coping_mechanisms": "",
+          "goals": "Client defines success as emotional healing, financial stability, and freedom from fear. She wishes to regain confidence and provide a positive example for her children.",
+          "challenges": "Client reports difficulty concentrating, fatigue, and avoidance of social interaction. Some days she struggles with motivation and basic self-care activities.",
+          "previous_counseling": "Client previously attended several crisis counseling sessions. Reported feeling supported but expressed a need for more consistent and longer-term therapeutic engagement.",
+          "medication": "Client occasionally prescribed mild sleep aids during acute anxiety episodes but prefers non-medication coping methods (e.g., deep breathing, journaling, guided relaxation).",
+          "support_system": "Client is slowly rebuilding trust and learning to accept assistance. Needs continuous emotional and social reinforcement to enhance resilience and stability."
+        },
+        "session_id": "session_1"
+      }
+    ],
+    "baselines": {},
+    "patterns": {}
+  }
+}

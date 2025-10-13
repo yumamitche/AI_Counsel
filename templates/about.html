@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - AI Counseling Assistant</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-buttons {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .about-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .about-section {
+            margin-bottom: 40px;
+        }
+
+        .about-section h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #e1e5e9;
+            padding-bottom: 10px;
+        }
+
+        .about-section p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid #e1e5e9;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .feature-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .disclaimer-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .disclaimer-box h4 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .disclaimer-box p {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .tech-info {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .tech-info h4 {
+            color: #1565c0;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .tech-info p {
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .back-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .about-container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-info-circle"></i> About the System</h1>
+            <p>Learn about our AI-powered counseling assistant</p>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="/" class="nav-btn"><i class="fas fa-home"></i> Home</a>
+            <a href="/analysis" class="nav-btn"><i class="fas fa-chart-line"></i> Analysis</a>
+            <a href="/resources" class="nav-btn"><i class="fas fa-book"></i> Resources</a>
+        </div>
+
+        <div class="about-container">
+            <div class="about-section">
+                <h3><i class="fas fa-lightbulb"></i> What is the AI Counseling Assistant?</h3>
+                <p>The AI Counseling Assistant is an intelligent system designed to provide personalized mental health recommendations and support. It combines advanced natural language processing, sentiment analysis, and evidence-based therapeutic approaches to help users understand their emotional state and receive tailored guidance.</p>
+                <p>This system is not a replacement for professional mental health care, but rather a tool to help you better understand your mental health needs and provide initial guidance for self-improvement and well-being.</p>
+            </div>
+
+            <div class="about-section">
+                <h3><i class="fas fa-cogs"></i> How It Works</h3>
+                <p>The system analyzes your responses through multiple lenses:</p>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="feature-title">Sentiment Analysis</div>
+                        <div class="feature-description">Analyzes the emotional tone and sentiment of your written responses using advanced NLP techniques</div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="feature-title">Pattern Recognition</div>
+                        <div class="feature-description">Identifies emotional patterns and potential mental health indicators in your responses</div>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="feature-title">Personalized Recommendations</div>
+                        <div class="feature-description">Generates customized recommendations based on your specific situation and needs</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h3><i class="fas fa-shield-alt"></i> Privacy and Security</h3>
+                <p>Your privacy and security are our top priorities:</p>
+                <ul style="margin-left: 20px; line-height: 1.8; color: #555;">
+                    <li>All data is stored anonymously and securely</li>
+                    <li>No personally identifiable information is collected</li>
+                    <li>Your responses are encrypted and protected</li>
+                    <li>Data is used only to improve the system and provide better recommendations</li>
+                    <li>You can use the system without creating an account</li>
+                </ul>
+            </div>
+
+            <div class="about-section">
+                <h3><i class="fas fa-graduation-cap"></i> Evidence-Based Approach</h3>
+                <p>Our recommendations are based on established therapeutic approaches and techniques:</p>
+                <ul style="margin-left: 20px; line-height: 1.8; color: #555;">
+                    <li><strong>Cognitive Behavioral Therapy (CBT):</strong> Techniques for identifying and changing negative thought patterns</li>
+                    <li><strong>Mindfulness-Based Approaches:</strong> Practices for present-moment awareness and stress reduction</li>
+                    <li><strong>Dialectical Behavior Therapy (DBT):</strong> Skills for emotional regulation and interpersonal effectiveness</li>
+                    <li><strong>Solution-Focused Brief Therapy:</strong> Goal-oriented approaches to problem-solving</li>
+                    <li><strong>Stress Management Techniques:</strong> Evidence-based methods for reducing stress and anxiety</li>
+                </ul>
+            </div>
+
+            <div class="tech-info">
+                <h4><i class="fas fa-microchip"></i> Technical Information</h4>
+                <p>The system uses advanced machine learning models including:</p>
+                <ul style="margin-left: 20px; line-height: 1.8; color: #1565c0;">
+                    <li>Natural Language Processing (NLP) for text analysis</li>
+                    <li>Sentiment analysis using VADER and custom algorithms</li>
+                    <li>Semantic similarity analysis for pattern recognition</li>
+                    <li>Machine learning models trained on mental health data</li>
+                    <li>Real-time recommendation generation</li>
+                </ul>
+            </div>
+
+            <div class="disclaimer-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Important Disclaimer</h4>
+                <p><strong>This AI system is not a substitute for professional mental health care.</strong></p>
+                <p>If you are experiencing a mental health crisis, having thoughts of self-harm, or need immediate support, please:</p>
+                <ul style="margin-left: 20px; line-height: 1.8; color: #856404;">
+                    <li>Call 988 (National Suicide Prevention Lifeline)</li>
+                    <li>Text HOME to 741741 (Crisis Text Line)</li>
+                    <li>Contact a mental health professional</li>
+                    <li>Go to your nearest emergency room</li>
+                </ul>
+                <p>The recommendations provided are for informational purposes only and should not replace professional medical advice, diagnosis, or treatment.</p>
+            </div>
+
+            <div class="about-section">
+                <h3><i class="fas fa-users"></i> Who Can Benefit</h3>
+                <p>This system is designed for:</p>
+                <ul style="margin-left: 20px; line-height: 1.8; color: #555;">
+                    <li>Individuals seeking to better understand their mental health</li>
+                    <li>People looking for self-help strategies and techniques</li>
+                    <li>Those wanting to track their emotional well-being over time</li>
+                    <li>Individuals seeking guidance on when to seek professional help</li>
+                    <li>Anyone interested in learning about evidence-based mental health approaches</li>
+                </ul>
+            </div>
+
+            <div class="about-section">
+                <h3><i class="fas fa-arrow-up"></i> Continuous Improvement</h3>
+                <p>Our system is constantly learning and improving:</p>
+                <ul style="margin-left: 20px; line-height: 1.8; color: #555;">
+                    <li>Regular updates based on the latest mental health research</li>
+                    <li>User feedback integration for better recommendations</li>
+                    <li>Ongoing model training with new data</li>
+                    <li>Collaboration with mental health professionals</li>
+                    <li>Regular security and privacy audits</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="/" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Assessment
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

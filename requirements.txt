@@ -1,0 +1,17 @@
+flask==2.3.3
+numpy==1.24.3
+pandas==2.0.3
+nltk==3.8.1
+requests==2.31.0
+flask-cors==4.0.0
+python-dotenv==1.0.0
+
+# Text-based ML dependencies
+sentence-transformers==2.2.2
+scikit-learn==1.3.0
+torch==2.0.1
+transformers==4.33.2
+
+# TinyLlama for dynamic text generation
+accelerate==0.24.1
+bitsandbytes==0.41.3
