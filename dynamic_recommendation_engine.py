@@ -35,7 +35,7 @@ class DynamicRecommendationEngine:
         # Initialize TinyLlama-Chat for dynamic text generation (lazy loading)
         self.tinyllama_engine = None
         self.tinyllama_initialized = False
-        print("✅ Dynamic recommendation engine initialized (TinyLlama-Chat will load on first use)")
+        print("[OK] Dynamic recommendation engine initialized (TinyLlama-Chat will load on first use)")
         
         # Load historical data for pattern analysis
         self._load_historical_patterns()
@@ -44,12 +44,12 @@ class DynamicRecommendationEngine:
         """Initialize TinyLlama-Chat only when needed"""
         if not self.tinyllama_initialized and TINYLLAMA_AVAILABLE:
             try:
-                print("🚀 Initializing TinyLlama-Chat for first use...")
+                print("[START] Initializing TinyLlama-Chat for first use...")
                 self.tinyllama_engine = TinyLlamaRecommendationEngine()
                 self.tinyllama_initialized = True
-                print("✅ TinyLlama-Chat recommendation engine ready")
+                print("[OK] TinyLlama-Chat recommendation engine ready")
             except Exception as e:
-                print(f"⚠️ TinyLlama-Chat initialization failed: {e}")
+                print(f"[WARNING] TinyLlama-Chat initialization failed: {e}")
                 self.tinyllama_engine = None
                 self.tinyllama_initialized = True  # Mark as attempted to avoid retries
     
@@ -106,7 +106,7 @@ class DynamicRecommendationEngine:
                 self._build_user_similarity_matrix(sessions)
                 
         except Exception as e:
-            print(f"⚠️ Could not load historical patterns: {e}")
+            print(f"[WARNING] Could not load historical patterns: {e}")
     
     def _analyze_effectiveness_patterns(self, sessions: List[Dict]):
         """Analyze which interventions were most effective for different user profiles"""
@@ -216,7 +216,7 @@ class DynamicRecommendationEngine:
                 return ai_recommendations[:8]
                 
             except Exception as e:
-                print(f"⚠️ TinyLlama-Chat generation failed: {e}")
+                print(f"[WARNING] TinyLlama-Chat generation failed: {e}")
                 # Return empty to avoid template text in AI section
                 return []
         
@@ -232,7 +232,7 @@ class DynamicRecommendationEngine:
         try:
             return self.tinyllama_engine.generate_section_paragraph(section, user_data, ml_predictions)
         except Exception as e:
-            print(f"⚠️ Section generation failed ({section}): {e}")
+            print(f"[WARNING] Section generation failed ({section}): {e}")
             return ""
     
     def _generate_fallback_recommendations(self, user_data: Dict, ml_predictions: Dict) -> List[str]:
@@ -289,7 +289,7 @@ class DynamicRecommendationEngine:
         # Add ML confidence insights
         model_confidence = ml_predictions.get('model_confidence', 0.7)
         if model_confidence > 0.8:
-            recommendations.append("🎯 HIGH CONFIDENCE ANALYSIS: Our AI analysis shows high confidence in these recommendations based on your profile and similar successful cases.")
+            recommendations.append("[TARGET] HIGH CONFIDENCE ANALYSIS: Our AI analysis shows high confidence in these recommendations based on your profile and similar successful cases.")
         
         # Add text analysis insights
         text_sentiment = ml_predictions.get('text_sentiment', {})
@@ -345,7 +345,7 @@ class DynamicRecommendationEngine:
             technique = self._select_optimal_technique('emotional_regulation', intensity_multiplier)
             duration = self._calculate_optimal_duration('emotional_regulation', intensity_multiplier)
             recommendations.append(
-                f"📊 MODERATE-RISK INTERVENTION: {technique} for {duration} - "
+                f"[DATA] MODERATE-RISK INTERVENTION: {technique} for {duration} - "
                 f"ML analysis shows {success_prob:.1%} effectiveness"
             )
         
@@ -354,7 +354,7 @@ class DynamicRecommendationEngine:
             technique = self._select_optimal_technique('stress_management', 0.5)  # Lower intensity
             duration = self._calculate_optimal_duration('stress_management', 0.5)
             recommendations.append(
-                f"✅ PREVENTIVE INTERVENTION: {technique} for {duration} - "
+                f"[OK] PREVENTIVE INTERVENTION: {technique} for {duration} - "
                 f"Maintenance protocol with {success_prob:.1%} predicted success"
             )
         
@@ -429,7 +429,7 @@ class DynamicRecommendationEngine:
             if match_score > 0.6:  # High match threshold
                 technique = self._select_technique_by_category(technique_category, match_score)
                 recommendations.append(
-                    f"🎯 PERSONALIZED TECHNIQUE: {technique} - "
+                    f"[TARGET] PERSONALIZED TECHNIQUE: {technique} - "
                     f"Text analysis shows {match_score:.1%} match with your profile"
                 )
         
@@ -628,7 +628,7 @@ class DynamicRecommendationEngine:
 
 # Example usage
 if __name__ == "__main__":
-    print("🚀 Initializing Dynamic Recommendation Engine...")
+    print("[START] Initializing Dynamic Recommendation Engine...")
     engine = DynamicRecommendationEngine()
     
     # Test with sample data
@@ -649,10 +649,10 @@ if __name__ == "__main__":
     
     recommendations = engine.generate_dynamic_recommendations(test_user, test_ml_predictions)
     
-    print("\n🎯 Dynamic Recommendations (No Hardcoding):")
+    print("\n[TARGET] Dynamic Recommendations (No Hardcoding):")
     print("=" * 60)
     for i, rec in enumerate(recommendations, 1):
         print(f"{i}. {rec}")
     
-    print(f"\n📊 Generated {len(recommendations)} truly dynamic recommendations")
-    print("✅ No hardcoded templates used - all generated algorithmically!")
+    print(f"\n[DATA] Generated {len(recommendations)} truly dynamic recommendations")
+    print("[OK] No hardcoded templates used - all generated algorithmically!")

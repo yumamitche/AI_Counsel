@@ -19,8 +19,8 @@ try:
     TINYLLAMA_AVAILABLE = True
 except (ImportError, Exception) as e:
     TINYLLAMA_AVAILABLE = False
-    print(f"⚠️ Transformers/PyTorch not available: {e}")
-    print("⚠️ Using fallback recommendations")
+    print(f"[WARNING] Transformers/PyTorch not available: {e}")
+    print("[WARNING] Using fallback recommendations")
 
 class TinyLlamaRecommendationEngine:
     """Dynamic recommendation engine using TinyLlama-Chat for text generation"""
@@ -67,14 +67,14 @@ class TinyLlamaRecommendationEngine:
     def _initialize_model(self):
         """Initialize TinyLlama-Chat model for text generation"""
         if not TINYLLAMA_AVAILABLE:
-            print("⚠️ Transformers not available - using fallback recommendations")
+            print("[WARNING] Transformers not available - using fallback recommendations")
             return
         
         try:
             if getattr(self, '_local_files_only', False):
-                print(f"🚀 Loading TinyLlama-Chat from local path: {self.model_name} (no downloads)")
+                print(f"[START] Loading TinyLlama-Chat from local path: {self.model_name} (no downloads)")
             else:
-                print("🚀 Loading TinyLlama-Chat (1.1B) for dynamic recommendations...")
+                print("[START] Loading TinyLlama-Chat (1.1B) for dynamic recommendations...")
                 print("📥 This may take a moment to download the model (~2GB)...")
             
             # Load tokenizer with timeout
@@ -106,11 +106,11 @@ class TinyLlamaRecommendationEngine:
                 torch_dtype=torch.float32
             )
             
-            print("✅ TinyLlama-Chat model loaded successfully for dynamic recommendations")
+            print("[OK] TinyLlama-Chat model loaded successfully for dynamic recommendations")
             
         except Exception as e:
-            print(f"⚠️ Failed to load TinyLlama-Chat: {e}")
-            print("🔄 Falling back to template-based recommendations")
+            print(f"[WARNING] Failed to load TinyLlama-Chat: {e}")
+            print("[UPDATE] Falling back to template-based recommendations")
             self.generator = None
     
     def generate_counseling_recommendations(self, user_data: Dict, ml_insights: Dict) -> List[str]:
@@ -131,7 +131,7 @@ class TinyLlamaRecommendationEngine:
             return recommendations
             
         except Exception as e:
-            print(f"⚠️ TinyLlama-Chat generation failed: {e}")
+            print(f"[WARNING] TinyLlama-Chat generation failed: {e}")
             return self._get_fallback_recommendations(user_data, ml_insights)
 
     def generate_section_paragraph(self, section: str, user_data: Dict, ml_insights: Dict) -> str:
@@ -152,12 +152,12 @@ class TinyLlamaRecommendationEngine:
                     if self._is_valid_paragraph(text, user_data):
                         return text
                 except Exception as gen_error:
-                    print(f"⚠️ Generation attempt {attempt + 1} failed: {gen_error}")
+                    print(f"[WARNING] Generation attempt {attempt + 1} failed: {gen_error}")
                     if attempt == 1:  # Last attempt
                         return self._get_fallback_paragraph(section, user_data)
             return self._get_fallback_paragraph(section, user_data)
         except Exception as e:
-            print(f"⚠️ TinyLlama-Chat section generation failed ({section}): {e}")
+            print(f"[WARNING] TinyLlama-Chat section generation failed ({section}): {e}")
             return self._get_fallback_paragraph(section, user_data)
 
     def _create_section_prompt(self, section: str, user_data: Dict, ml: Dict) -> str:
@@ -398,7 +398,7 @@ PARAGRAPH:"""
             return generated_text
             
         except Exception as e:
-            print(f"⚠️ TinyLlama-Chat text generation error: {e}")
+            print(f"[WARNING] TinyLlama-Chat text generation error: {e}")
             return ""
     
     def _parse_recommendations(self, generated_text: str) -> List[str]:
@@ -511,7 +511,7 @@ PARAGRAPH:"""
             return recommendations
             
         except Exception as e:
-            print(f"⚠️ TinyLlama-Chat emotion-specific generation failed: {e}")
+            print(f"[WARNING] TinyLlama-Chat emotion-specific generation failed: {e}")
             return self._get_emotion_fallback_recommendations(emotions)
     
     def _create_emotion_prompt(self, user_data: Dict, emotions: Dict) -> str:
@@ -567,7 +567,7 @@ RECOMMENDATIONS:"""
 
 # Example usage and testing
 if __name__ == "__main__":
-    print("🚀 Initializing TinyLlama-Chat Recommendation Engine...")
+    print("[START] Initializing TinyLlama-Chat Recommendation Engine...")
     
     # Initialize the engine
     engine = TinyLlamaRecommendationEngine()
@@ -593,7 +593,7 @@ if __name__ == "__main__":
         'success_probability': 0.75
     }
     
-    print("\n🎯 Generating AI-powered recommendations...")
+    print("\n[TARGET] Generating AI-powered recommendations...")
     recommendations = engine.generate_counseling_recommendations(test_user_data, test_ml_insights)
     
     print("\n📝 Generated Recommendations:")
@@ -601,9 +601,9 @@ if __name__ == "__main__":
     for i, rec in enumerate(recommendations, 1):
         print(f"{i}. {rec}")
     
-    print(f"\n📊 Model Status:")
+    print(f"\n[DATA] Model Status:")
     status = engine.get_model_status()
     for key, value in status.items():
         print(f"{key}: {value}")
     
-    print("\n✅ TinyLlama-Chat recommendation engine ready!")
+    print("\n[OK] TinyLlama-Chat recommendation engine ready!")

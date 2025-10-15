@@ -72993,6 +72993,80 @@
           "models_active": 3
         }
       }
+    },
+    {
+      "session_id": "0923035b-2b56-44ef-9874-f2c7cd3bc739",
+      "timestamp": "2025-10-14T22:05:11.764460",
+      "user_responses": {
+        "current_mood": "The client feeling anxious and scared because of what’s been happening lately. Her main safety concern is that herpartner might get angry if they find out she is seeking help from the social worker.",
+        "stress_level": 3,
+        "sleep_quality": 8,
+        "social_support": 4,
+        "life_changes": "The client reported that her partner has recently become more controlling and verbally aggressive, limiting her contact with friends and family. She also mentioned that financial stress and increased arguments at home have made her feel more unsafe and emotionally exhausted.",
+        "emotional_state": "The client expressed feeling constant fear, sadness, and self-blame due to repeated verbal and emotional abuse from her partner. Loud arguments or sudden shouting trigger anxiety and flashbacks of previous violent incidents, making her feel unsafe even in familiar environments.",
+        "coping_mechanisms": "",
+        "goals": "The client’s immediate goal is to ensure her safety and that of her children by finding a temporary place to stay away from her partner. She prefers to receive counseling support and assistance in coordinating with authorities or shelters for protection and emotional recovery.",
+        "challenges": "The client identified several barriers to safety, including financial dependence on her partner, fear of retaliation if she leaves, and limited access to transportation or safe housing. She also feels hesitant to seek help due to shame and concern about being judged by others in her community.",
+        "previous_counseling": "The client shared that she previously sought help from a friend and once contacted the barangay for advice, but no formal action was taken. She has not yet created a detailed safety plan and is unfamiliar with available crisis center services or legal protection options.",
+        "medication": "The client reported experiencing frequent headaches, sleep disturbances, and heightened anxiety, especially after violent incidents. She has not been formally diagnosed with any mental health condition but shows signs of emotional exhaustion and possible trauma-related stress.",
+        "support_system": "The client identified her sister as the most trusted person to communicate with regarding her situation. She mentioned that her sister is aware of the abuse and can be safely contacted in case of emergencies or when immediate support is needed.",
+        "emotional_score": 56.0
+      },
+      "analysis": {
+        "overall_sentiment": "negative",
+        "emotional_indicators": [],
+        "risk_factors": [],
+        "strengths": [],
+        "confidence_score": 0.0,
+        "ml_insights": {
+          "ml_available": true,
+          "total_sessions": 1082,
+          "models_active": 3
+        },
+        "sentiment_scores": {
+          "neg": 0.181,
+          "neu": 0.681,
+          "pos": 0.138,
+          "compound": -0.8957
+        }
+      }
+    },
+    {
+      "session_id": "5e54d765-c8e0-4963-a209-cffecd0af18d",
+      "timestamp": "2025-10-15T10:01:28.981103",
+      "user_responses": {
+        "current_mood": "the client is upset because her husband abandon here",
+        "stress_level": 8,
+        "sleep_quality": 3,
+        "social_support": 7,
+        "life_changes": "the client just recently separate to her husband",
+        "emotional_state": "the client is too emotional to handle the situation",
+        "coping_mechanisms": "",
+        "goals": "the client just want to contact her husband and have a personal talk",
+        "challenges": "the client do not have enough financial",
+        "previous_counseling": "no, the client do not have experience in talking to professional mental health",
+        "medication": "none",
+        "support_system": "mother and father of the client",
+        "emotional_score": 44.0
+      },
+      "analysis": {
+        "overall_sentiment": "negative",
+        "emotional_indicators": [],
+        "risk_factors": [],
+        "strengths": [],
+        "confidence_score": 0.0,
+        "ml_insights": {
+          "ml_available": true,
+          "total_sessions": 1083,
+          "models_active": 3
+        },
+        "sentiment_scores": {
+          "neg": 0.133,
+          "neu": 0.797,
+          "pos": 0.07,
+          "compound": -0.5574
+        }
+      }
     }
   ],
   "feedback": [],

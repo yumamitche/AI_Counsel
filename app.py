@@ -12,10 +12,10 @@ app.secret_key = os.environ.get('SECRET_KEY', 'your-secret-key-here-change-in-pr
 # Initialize AI components
 try:
     counseling_ai = LightweightCounselingAI()
-    print("✅ AI components initialized successfully")
+    print("AI components initialized successfully")
 except Exception as e:
-    print(f"⚠️ Error initializing AI components: {e}")
-    print("⚠️ Some features may not be available")
+    print(f"Error initializing AI components: {e}")
+    print("Some features may not be available")
     counseling_ai = None
 
 def save_session_data(user_responses: Dict, analysis: Dict) -> str:
@@ -356,9 +356,9 @@ if __name__ == '__main__':
         nltk.download('stopwords', quiet=True)
         nltk.download('wordnet', quiet=True)
         nltk.download('vader_lexicon', quiet=True)
-        print("✓ NLTK data downloaded successfully")
+        print("[CHECK] NLTK data downloaded successfully")
     except Exception as e:
-        print(f"⚠ NLTK not available: {e}")
+        print(f"NLTK not available: {e}")
         print("System will use basic text processing")
     
     # Create necessary directories

@@ -54,18 +54,18 @@ class PurePythonMLEngine:
         # Initialize dynamic recommendation engine
         if DYNAMIC_RECOMMENDATIONS_AVAILABLE:
             self.recommendation_engine = DynamicRecommendationEngine(data_file)
-            print("✅ Dynamic Recommendation Engine initialized")
+            print("[OK] Dynamic Recommendation Engine initialized")
         else:
             self.recommendation_engine = None
-            print("⚠️ Dynamic Recommendation Engine not available")
+            print("[WARNING] Dynamic Recommendation Engine not available")
         
         # Initialize text-based ML engine
         if TEXT_ML_AVAILABLE:
             self.text_engine = TextMLEngine(data_file)
-            print("✅ Text-based ML Engine initialized")
+            print("[OK] Text-based ML Engine initialized")
         else:
             self.text_engine = None
-            print("⚠️ Text-based ML Engine not available")
+            print("[WARNING] Text-based ML Engine not available")
         
         # Initialize models
         self._initialize_models()
@@ -76,13 +76,13 @@ class PurePythonMLEngine:
             with open(self.data_file, 'r', encoding='utf-8') as f:
                 data = json.load(f)
                 self.session_data = data.get('sessions', [])
-                print(f"✅ Loaded {len(self.session_data)} sessions for pure Python ML learning")
+                print(f"Loaded {len(self.session_data)} sessions for pure Python ML learning")
                 
                 # Build user profiles from existing data
                 self._build_user_profiles_from_data()
                 
         except Exception as e:
-            print(f"⚠️ Could not load data: {e}")
+            print(f"Could not load data: {e}")
             self.session_data = []
     
     def _build_user_profiles_from_data(self):
@@ -102,7 +102,7 @@ class PurePythonMLEngine:
                 'patterns': self._identify_user_patterns(sessions)
             }
         
-        print(f"✅ Built {len(self.user_profiles)} user profiles from existing data")
+        print(f"[OK] Built {len(self.user_profiles)} user profiles from existing data")
     
     def _calculate_user_baselines(self, sessions: List[Dict]) -> Dict:
         """Calculate baseline metrics for a user"""
@@ -224,9 +224,9 @@ class PurePythonMLEngine:
                     with open(f"{model_dir}/{file}", 'rb') as f:
                         self.models[model_name] = pickle.load(f)
             
-            print(f"✅ Loaded {len(self.models)} pure Python models")
+            print(f"[OK] Loaded {len(self.models)} pure Python models")
         except Exception as e:
-            print(f"⚠️ Error loading models: {e}")
+            print(f"[WARNING] Error loading models: {e}")
     
     def _save_models(self):
         """Save models efficiently"""
@@ -239,19 +239,19 @@ class PurePythonMLEngine:
                 with open(f"{model_dir}/{model_name}.pkl", 'wb') as f:
                     pickle.dump(model, f)
             
-            print("✅ Pure Python models saved successfully")
+            print("[OK] Pure Python models saved successfully")
         except Exception as e:
-            print(f"⚠️ Error saving models: {e}")
+            print(f"[WARNING] Error saving models: {e}")
     
     def _initialize_models(self):
         """Initialize pure Python ML models"""
-        print("🚀 Initializing Pure Python ML models...")
+        print("[START] Initializing Pure Python ML models...")
         
         # Prepare training data
         if len(self.session_data) >= self.min_samples_for_training:
             self._train_initial_models()
         else:
-            print("⚠️ Insufficient data for initial training - will train incrementally")
+            print("[WARNING] Insufficient data for initial training - will train incrementally")
     
     def _prepare_features(self, sessions: List[Dict]) -> Tuple[np.ndarray, List[str], List[float]]:
         """Prepare features for ML training"""
@@ -309,7 +309,7 @@ class PurePythonMLEngine:
         self.models['user_clustering'] = PurePythonKMeans(n_clusters=n_clusters)
         self.models['user_clustering'].fit(features)
         
-        print("✅ Pure Python models trained successfully")
+        print("[OK] Pure Python models trained successfully")
     
     def add_session(self, session_data: Dict):
         """Add new session and update models incrementally"""
@@ -331,7 +331,7 @@ class PurePythonMLEngine:
             try:
                 self.text_engine.add_text_session(session_data)
             except Exception as e:
-                print(f"⚠️ Text engine learning failed: {e}")
+                print(f"[WARNING] Text engine learning failed: {e}")
         
         # Update models if we have enough new data
         if len(self.session_data) % self.model_update_frequency == 0:
@@ -342,7 +342,7 @@ class PurePythonMLEngine:
         if not self.models:
             return
         
-        print("🔄 Updating Pure Python models incrementally...")
+        print("[UPDATE] Updating Pure Python models incrementally...")
         
         # Get recent sessions for incremental training
         recent_sessions = self.session_data[-self.model_update_frequency:]
@@ -362,9 +362,9 @@ class PurePythonMLEngine:
             if 'user_clustering' in self.models:
                 self.models['user_clustering'].partial_fit(features)
             
-            print("✅ Pure Python models updated incrementally")
+            print("[OK] Pure Python models updated incrementally")
         except Exception as e:
-            print(f"⚠️ Error updating models: {e}")
+            print(f"[WARNING] Error updating models: {e}")
     
     def get_dynamic_recommendations(self, user_data: Dict) -> Dict:
         """Get dynamic ML-powered recommendations with text analysis"""
@@ -419,7 +419,7 @@ class PurePythonMLEngine:
                     predictions['text_cluster'] = text_analysis.get('text_cluster', -1)
                     
             except Exception as e:
-                print(f"⚠️ Text analysis failed: {e}")
+                print(f"[WARNING] Text analysis failed: {e}")
                 text_insights = {'error': str(e)}
         
         # Generate truly dynamic recommendations (TinyLlama-Chat only)
@@ -438,11 +438,11 @@ class PurePythonMLEngine:
         section_insights = ''
         section_next = ''
         if self.recommendation_engine:
-            print("🔄 Generating AI recommendations...")
+            print("[UPDATE] Generating AI recommendations...")
             section_main = self.recommendation_engine.generate_section_paragraph('main', user_data, predictions)
-            print("🔄 Generating emotion guidance...")
+            print("[UPDATE] Generating emotion guidance...")
             section_emotions = self.recommendation_engine.generate_section_paragraph('emotions', user_data, predictions)
-            print("🔄 Generating next steps...")
+            print("[UPDATE] Generating next steps...")
             section_next = self.recommendation_engine.generate_section_paragraph('next_steps', user_data, predictions)
             
             # Skip insights section for faster generation
@@ -525,7 +525,7 @@ class PurePythonMLEngine:
         text_cluster = analysis.get('text_cluster', -1)
         if text_cluster >= 0:
             recommendations.append(
-                f"🎯 TEXT PATTERN ANALYSIS: Your responses match cluster {text_cluster} - "
+                f"[TARGET] TEXT PATTERN ANALYSIS: Your responses match cluster {text_cluster} - "
                 f"Similar users benefited from personalized intervention strategies"
             )
         
@@ -533,7 +533,7 @@ class PurePythonMLEngine:
         similarity_score = analysis.get('similarity_score', 0)
         if similarity_score > 0.7:
             recommendations.append(
-                f"🔍 TEXT SIMILARITY: High similarity ({similarity_score:.1%}) to previous successful cases - "
+                f"[SEARCH] TEXT SIMILARITY: High similarity ({similarity_score:.1%}) to previous successful cases - "
                 f"Proven intervention strategies available for your profile"
             )
         
@@ -555,7 +555,7 @@ class PurePythonMLEngine:
                 goals_sentiment = field_analyses['goals'].get('sentiment', {})
                 if goals_sentiment.get('sentiment') == 'positive':
                     recommendations.append(
-                        f"🎯 GOALS ANALYSIS: Positive goal-setting language detected - "
+                        f"[TARGET] GOALS ANALYSIS: Positive goal-setting language detected - "
                         f"Leverage motivation for structured goal achievement plan"
                     )
         
@@ -644,28 +644,28 @@ class PurePythonMLEngine:
         if risk_level == 'high':
             recommendations.extend([
                 "🚨 PURE PYTHON ML ANALYSIS: HIGH RISK detected - immediate intervention recommended",
-                "📊 PATTERN RECOGNITION: Crisis-level support needed based on similar user patterns",
-                "🎯 PREDICTIVE MODEL: 24/7 monitoring recommended - ML shows 92% success with immediate care",
-                "⚡ PURE PYTHON INSIGHTS: Critical patterns detected - emergency protocols suggested",
-                f"🧠 CLUSTER ANALYSIS: You're in cluster {cluster} - personalized crisis intervention recommended",
+                "[DATA] PATTERN RECOGNITION: Crisis-level support needed based on similar user patterns",
+                "[TARGET] PREDICTIVE MODEL: 24/7 monitoring recommended - ML shows 92% success with immediate care",
+                "[FAST] PURE PYTHON INSIGHTS: Critical patterns detected - emergency protocols suggested",
+                f"[AI] CLUSTER ANALYSIS: You're in cluster {cluster} - personalized crisis intervention recommended",
                 f"📈 SUCCESS PREDICTION: {success_prob:.1%} intervention success probability"
             ])
         elif risk_level == 'medium':
             recommendations.extend([
-                "📊 PURE PYTHON ML ANALYSIS: MODERATE RISK - structured intervention recommended",
-                "🔍 PATTERN RECOGNITION: Weekly check-ins suggested based on user clustering",
-                "🎯 PREDICTIVE MODEL: Gradual improvement approach - ML shows optimal success",
-                "⚡ PURE PYTHON INSIGHTS: Targeted interventions recommended for your risk profile",
-                f"🧠 CLUSTER ANALYSIS: You're in cluster {cluster} - personalized care plan recommended",
+                "[DATA] PURE PYTHON ML ANALYSIS: MODERATE RISK - structured intervention recommended",
+                "[SEARCH] PATTERN RECOGNITION: Weekly check-ins suggested based on user clustering",
+                "[TARGET] PREDICTIVE MODEL: Gradual improvement approach - ML shows optimal success",
+                "[FAST] PURE PYTHON INSIGHTS: Targeted interventions recommended for your risk profile",
+                f"[AI] CLUSTER ANALYSIS: You're in cluster {cluster} - personalized care plan recommended",
                 f"📈 SUCCESS PREDICTION: {success_prob:.1%} intervention success probability"
             ])
         else:
             recommendations.extend([
-                "✅ PURE PYTHON ML ANALYSIS: LOW RISK - preventive measures recommended",
-                "📊 PATTERN RECOGNITION: Maintenance and growth focus based on similar users",
-                "🎯 PREDICTIVE MODEL: Skill-building recommended - ML shows optimal outcomes",
-                "⚡ PURE PYTHON INSIGHTS: Proactive wellness strategies recommended",
-                f"🧠 CLUSTER ANALYSIS: You're in cluster {cluster} - wellness maintenance recommended",
+                "[OK] PURE PYTHON ML ANALYSIS: LOW RISK - preventive measures recommended",
+                "[DATA] PATTERN RECOGNITION: Maintenance and growth focus based on similar users",
+                "[TARGET] PREDICTIVE MODEL: Skill-building recommended - ML shows optimal outcomes",
+                "[FAST] PURE PYTHON INSIGHTS: Proactive wellness strategies recommended",
+                f"[AI] CLUSTER ANALYSIS: You're in cluster {cluster} - wellness maintenance recommended",
                 f"📈 SUCCESS PREDICTION: {success_prob:.1%} intervention success probability"
             ])
         
@@ -682,8 +682,8 @@ class PurePythonMLEngine:
             recommendations.append("👥 SOCIAL ANALYSIS: Critical social support deficit - social connection intervention needed")
         
         # Pure Python ML insights
-        recommendations.append(f"🚀 PURE PYTHON ML ENGINE: Real-time analysis of {len(self.session_data)} sessions with online learning")
-        recommendations.append("🧠 ALGORITHMS: Pure Python Decision Tree, Linear Regression, K-Means clustering, pattern recognition")
+        recommendations.append(f"[START] PURE PYTHON ML ENGINE: Real-time analysis of {len(self.session_data)} sessions with online learning")
+        recommendations.append("[AI] ALGORITHMS: Pure Python Decision Tree, Linear Regression, K-Means clustering, pattern recognition")
         
         return recommendations
     
@@ -751,12 +751,12 @@ class PurePythonMLEngine:
     def retrain_models(self):
         """Retrain all models with current data"""
         if len(self.session_data) >= self.min_samples_for_training:
-            print("🔄 Retraining Pure Python models...")
+            print("[UPDATE] Retraining Pure Python models...")
             self._train_initial_models()
             self._save_models()
-            print("✅ Pure Python models retrained successfully")
+            print("[OK] Pure Python models retrained successfully")
         else:
-            print("⚠️ Insufficient data for retraining")
+            print("[WARNING] Insufficient data for retraining")
 
 
 class PurePythonDecisionTree:
@@ -953,7 +953,7 @@ class PurePythonKMeans:
 
 # Example usage
 if __name__ == "__main__":
-    print("🚀 Initializing Pure Python ML Engine...")
+    print("[START] Initializing Pure Python ML Engine...")
     ml_engine = PurePythonMLEngine()
     
     # Test with sample data
@@ -966,12 +966,12 @@ if __name__ == "__main__":
     
     recommendations = ml_engine.get_dynamic_recommendations(test_user)
     
-    print("\n🎯 Pure Python ML Recommendations:")
+    print("\n[TARGET] Pure Python ML Recommendations:")
     print("=" * 50)
     for rec in recommendations['ml_recommendations']:
         print(f"• {rec}")
     
-    print(f"\n📊 Model Confidence: {recommendations['model_confidence']:.1%}")
+    print(f"\n[DATA] Model Confidence: {recommendations['model_confidence']:.1%}")
     print(f"📈 Total Sessions: {recommendations['data_insights']['total_sessions']}")
     print(f"🤖 Models Active: {recommendations['data_insights']['models_active']}")
     

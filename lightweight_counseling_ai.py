@@ -36,22 +36,22 @@ class LightweightCounselingAI:
         # Initialize pure Python ML engine
         if ML_ENGINE_AVAILABLE:
             self.ml_engine = PurePythonMLEngine()
-            print("✅ Pure Python ML Engine initialized")
+            print("[OK] Pure Python ML Engine initialized")
         else:
             self.ml_engine = None
-            print("⚠️ Pure Python ML Engine not available - using rule-based fallback")
+            print("[WARNING] Pure Python ML Engine not available - using rule-based fallback")
         
         # Initialize lightweight NLP
         if NLTK_AVAILABLE:
             try:
                 self.sentiment_analyzer = SentimentIntensityAnalyzer()
-                print("✅ Lightweight NLP initialized")
+                print("[OK] Lightweight NLP initialized")
             except:
                 self.sentiment_analyzer = None
-                print("⚠️ NLTK sentiment analysis not available")
+                print("[WARNING] NLTK sentiment analysis not available")
         else:
             self.sentiment_analyzer = None
-            print("⚠️ NLTK not available - using basic text processing")
+            print("[WARNING] NLTK not available - using basic text processing")
         
         # User profiles and learning data
         self.user_profiles = {}
@@ -67,9 +67,9 @@ class LightweightCounselingAI:
             try:
                 with open(profiles_path, 'r') as f:
                     self.user_profiles = json.load(f)
-                print(f"✅ Loaded {len(self.user_profiles)} user profiles")
+                print(f"[OK] Loaded {len(self.user_profiles)} user profiles")
             except Exception as e:
-                print(f"⚠️ Error loading user profiles: {e}")
+                print(f"[WARNING] Error loading user profiles: {e}")
                 self.user_profiles = {}
     
     def _save_user_profiles(self):
@@ -79,7 +79,7 @@ class LightweightCounselingAI:
             with open(profiles_path, 'w') as f:
                 json.dump(self.user_profiles, f, indent=2)
         except Exception as e:
-            print(f"⚠️ Error saving user profiles: {e}")
+            print(f"[WARNING] Error saving user profiles: {e}")
     
     def analyze_emotional_state(self, user_responses: Dict, user_id: str = None) -> Dict:
         """Analyze emotional state using lightweight methods"""
@@ -255,7 +255,7 @@ class LightweightCounselingAI:
                     'personalization_level': 'ml_powered'
                 }
             except Exception as e:
-                print(f"⚠️ ML engine error: {e}")
+                print(f"[WARNING] ML engine error: {e}")
                 return self._generate_basic_recommendations(user_responses, user_id)
         else:
             return self._generate_basic_recommendations(user_responses, user_id)

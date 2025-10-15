@@ -21,7 +21,7 @@ try:
     SENTENCE_TRANSFORMERS_AVAILABLE = True
 except ImportError:
     SENTENCE_TRANSFORMERS_AVAILABLE = False
-    print("⚠️ sentence-transformers not available. Install with: pip install sentence-transformers")
+    print("Warning: sentence-transformers not available. Install with: pip install sentence-transformers")
 
 try:
     from sklearn.feature_extraction.text import TfidfVectorizer
@@ -32,7 +32,7 @@ try:
     SKLEARN_AVAILABLE = True
 except ImportError:
     SKLEARN_AVAILABLE = False
-    print("⚠️ scikit-learn not available. Install with: pip install scikit-learn")
+    print("[WARNING] scikit-learn not available. Install with: pip install scikit-learn")
 
 try:
     import nltk
@@ -42,7 +42,7 @@ try:
     NLTK_AVAILABLE = True
 except ImportError:
     NLTK_AVAILABLE = False
-    print("⚠️ NLTK not available. Install with: pip install nltk")
+    print("[WARNING] NLTK not available. Install with: pip install nltk")
 
 class TextMLEngine:
     """Lightweight text-based ML engine for deep text processing"""
@@ -74,9 +74,9 @@ class TextMLEngine:
         if SENTENCE_TRANSFORMERS_AVAILABLE:
             try:
                 self.sentence_model = SentenceTransformer(self.model_configs['sentence_transformer'])
-                print(f"✅ Loaded {self.model_configs['sentence_transformer']} model")
+                print(f"[OK] Loaded {self.model_configs['sentence_transformer']} model")
             except Exception as e:
-                print(f"⚠️ Could not load sentence transformer: {e}")
+                print(f"[WARNING] Could not load sentence transformer: {e}")
                 self.sentence_model = None
         else:
             self.sentence_model = None
@@ -91,9 +91,9 @@ class TextMLEngine:
                 
                 self.stop_words = set(stopwords.words('english'))
                 self.lemmatizer = WordNetLemmatizer()
-                print("✅ NLTK components initialized")
+                print("[OK] NLTK components initialized")
             except Exception as e:
-                print(f"⚠️ NLTK initialization failed: {e}")
+                print(f"[WARNING] NLTK initialization failed: {e}")
                 self.stop_words = set()
                 self.lemmatizer = None
         else:
@@ -109,7 +109,7 @@ class TextMLEngine:
                 min_df=2,
                 max_df=0.95
             )
-            print("✅ TF-IDF vectorizer initialized")
+            print("[OK] TF-IDF vectorizer initialized")
         else:
             self.tfidf_vectorizer = None
     
@@ -127,10 +127,10 @@ class TextMLEngine:
                     if text_data:
                         self.text_data.append(text_data)
                 
-                print(f"✅ Loaded {len(self.text_data)} text samples")
+                print(f"[OK] Loaded {len(self.text_data)} text samples")
                 
         except Exception as e:
-            print(f"⚠️ Could not load text data: {e}")
+            print(f"[WARNING] Could not load text data: {e}")
             self.text_data = []
     
     def _extract_text_from_session(self, session: Dict) -> Optional[Dict]:
@@ -201,7 +201,7 @@ class TextMLEngine:
                 tokens = [self.lemmatizer.lemmatize(token) for token in tokens]
                 text = ' '.join(tokens)
             except Exception as e:
-                print(f"⚠️ NLTK preprocessing failed: {e}")
+                print(f"[WARNING] NLTK preprocessing failed: {e}")
         
         return text
     
@@ -210,7 +210,7 @@ class TextMLEngine:
         print("🤖 Initializing text-based ML models...")
         
         if len(self.text_data) < 10:
-            print("⚠️ Insufficient text data for model training")
+            print("[WARNING] Insufficient text data for model training")
             return
         
         # Prepare training data
@@ -242,10 +242,10 @@ class TextMLEngine:
                 self.text_models['social_predictor'] = LogisticRegression(max_iter=1000)
                 self.text_models['social_predictor'].fit(tfidf_features, social_labels)
                 
-                print("✅ Text-based classification models trained")
+                print("[OK] Text-based classification models trained")
                 
             except Exception as e:
-                print(f"⚠️ Text model training failed: {e}")
+                print(f"[WARNING] Text model training failed: {e}")
         
         # 2. Text Embeddings and Clustering
         if self.sentence_model:
@@ -262,10 +262,10 @@ class TextMLEngine:
                 self.text_embeddings = embeddings
                 self.text_clusters = self.text_models['text_clustering'].labels_
                 
-                print("✅ Text embeddings and clustering models trained")
+                print("[OK] Text embeddings and clustering models trained")
                 
             except Exception as e:
-                print(f"⚠️ Embedding model training failed: {e}")
+                print(f"[WARNING] Embedding model training failed: {e}")
         
         # 3. Topic Modeling (if enough data)
         if len(texts) >= 50 and SKLEARN_AVAILABLE:
@@ -274,10 +274,10 @@ class TextMLEngine:
                 self.text_models['topic_model'] = KMeans(n_clusters=min(10, len(texts) // 5), random_state=42)
                 self.text_models['topic_model'].fit(tfidf_features)
                 
-                print("✅ Topic modeling completed")
+                print("[OK] Topic modeling completed")
                 
             except Exception as e:
-                print(f"⚠️ Topic modeling failed: {e}")
+                print(f"[WARNING] Topic modeling failed: {e}")
     
     def analyze_text(self, text: str) -> Dict:
         """Analyze text using all available models"""
@@ -309,7 +309,7 @@ class TextMLEngine:
                     'high': float(risk_probabilities[2]) if len(risk_probabilities) > 2 else 0.0
                 }
             except Exception as e:
-                print(f"⚠️ Risk classification failed: {e}")
+                print(f"[WARNING] Risk classification failed: {e}")
         
         # 2. Numeric Predictions
         if self.tfidf_vectorizer:
@@ -329,7 +329,7 @@ class TextMLEngine:
                     analysis['predicted_social'] = int(social_pred)
                     
             except Exception as e:
-                print(f"⚠️ Numeric prediction failed: {e}")
+                print(f"[WARNING] Numeric prediction failed: {e}")
         
         # 3. Text Embeddings and Similarity
         if self.sentence_model:
@@ -350,7 +350,7 @@ class TextMLEngine:
                     analysis['text_cluster'] = int(cluster)
                     
             except Exception as e:
-                print(f"⚠️ Embedding analysis failed: {e}")
+                print(f"[WARNING] Embedding analysis failed: {e}")
         
         # 4. Sentiment Analysis (simple rule-based)
         analysis['sentiment'] = self._analyze_sentiment(processed_text)
@@ -365,7 +365,7 @@ class TextMLEngine:
                 topic = self.text_models['topic_model'].predict(tfidf_features)[0]
                 analysis['topic'] = int(topic)
             except Exception as e:
-                print(f"⚠️ Topic classification failed: {e}")
+                print(f"[WARNING] Topic classification failed: {e}")
         
         return analysis
     
@@ -481,14 +481,14 @@ class TextMLEngine:
     
     def _update_models_incrementally(self):
         """Update models with new text data"""
-        print("🔄 Updating text models incrementally...")
+        print("[UPDATE] Updating text models incrementally...")
         
         if len(self.text_data) < 20:
             return
         
         # Retrain models with all data
         self._initialize_models()
-        print("✅ Text models updated with new data")
+        print("[OK] Text models updated with new data")
     
     def get_model_status(self) -> Dict:
         """Get status of all text models"""
@@ -505,7 +505,7 @@ class TextMLEngine:
 
 # Example usage and testing
 if __name__ == "__main__":
-    print("🚀 Initializing Text-Based ML Engine...")
+    print("[START] Initializing Text-Based ML Engine...")
     
     # Initialize the engine
     text_engine = TextMLEngine()
@@ -516,7 +516,7 @@ if __name__ == "__main__":
     print("\n📝 Testing text analysis...")
     analysis = text_engine.analyze_text(test_text)
     
-    print("\n🎯 Text Analysis Results:")
+    print("\n[TARGET] Text Analysis Results:")
     print("=" * 50)
     for key, value in analysis.items():
         if isinstance(value, dict):
@@ -526,9 +526,9 @@ if __name__ == "__main__":
         else:
             print(f"{key}: {value}")
     
-    print(f"\n📊 Model Status:")
+    print(f"\n[DATA] Model Status:")
     status = text_engine.get_model_status()
     for key, value in status.items():
         print(f"{key}: {value}")
     
-    print("\n✅ Text-based ML engine ready for integration!")
+    print("\n[OK] Text-based ML engine ready for integration!")

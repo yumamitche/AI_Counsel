@@ -34,7 +34,7 @@ def check_dependencies():
         print("   pip install -r requirements.txt")
         return False
     
-    print("✅ All required packages are installed")
+    print("[OK] All required packages are installed")
     return True
 
 def download_nltk_data():
@@ -53,14 +53,14 @@ def download_nltk_data():
         for data in nltk_data:
             try:
                 nltk.download(data, quiet=True)
-                print(f"   ✅ {data}")
+                print(f"   [OK] {data}")
             except:
-                print(f"   ⚠️ {data} (optional)")
+                print(f"   [WARNING] {data} (optional)")
         
-        print("✅ NLTK data downloaded")
+        print("[OK] NLTK data downloaded")
         return True
     except Exception as e:
-        print(f"⚠️ NLTK data download failed: {e}")
+        print(f"[WARNING] NLTK data download failed: {e}")
         print("   System will use basic text processing")
         return False
 
@@ -74,11 +74,11 @@ def create_directories():
     
     for directory in directories:
         Path(directory).mkdir(exist_ok=True)
-        print(f"✅ Created directory: {directory}")
+        print(f"[OK] Created directory: {directory}")
 
 def main():
     """Main function to run the lightweight AI counseling system"""
-    print("🚀 Lightweight AI Counseling System")
+    print("[START] Lightweight AI Counseling System")
     print("=" * 50)
     
     # Check dependencies
@@ -91,7 +91,7 @@ def main():
     # Create directories
     create_directories()
     
-    print("\n🎯 System Features:")
+    print("\n[TARGET] System Features:")
     print("   • Pure Python ML Engine with online learning")
     print("   • No external ML library dependencies")
     print("   • Real-time pattern recognition")
