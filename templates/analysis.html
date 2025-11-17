@@ -334,6 +334,57 @@
             color: #ffd700;
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: none;
+            border-radius: 20px;
+            width: 85%;
+            max-width: 900px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #667eea;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -349,6 +400,12 @@
             
             .sentiment-scores {
                 flex-direction: column;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+                padding: 20px;
             }
         }
     </style>
@@ -477,6 +534,114 @@
                     </div>
                 </div>
                 {% endif %}
+            </div>
+            {% endif %}
+
+            <!-- AI-Generated Section Recommendations with Modal Buttons -->
+            {% if recommendations.sections %}
+                {% if recommendations.sections.main %}
+                <div class="analysis-section ml-powered">
+                    <h3><i class="fas fa-comments"></i> AI Counseling Recommendations</h3>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #667eea; text-align: center;">
+                        <button onclick="openModal('mainModal')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 15px 30px; border-radius: 25px; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                            <i class="fas fa-eye"></i> View AI Counseling Recommendations
+                        </button>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if recommendations.sections.emotions %}
+                <div class="analysis-section ml-powered">
+                    <h3><i class="fas fa-heart"></i> Emotional Guidance</h3>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #f093fb; text-align: center;">
+                        <button onclick="openModal('emotionsModal')" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; border: none; padding: 15px 30px; border-radius: 25px; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                            <i class="fas fa-eye"></i> View Emotional Guidance
+                        </button>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if recommendations.sections.next_steps %}
+                <div class="analysis-section ml-powered">
+                    <h3><i class="fas fa-tasks"></i> Next Steps Plan</h3>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #4ade80; text-align: center;">
+                        <button onclick="openModal('nextStepsModal')" style="background: linear-gradient(135deg, #4ade80 0%, #16a34a 100%); color: white; border: none; padding: 15px 30px; border-radius: 25px; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                            <i class="fas fa-eye"></i> View Next Steps Plan
+                        </button>
+                    </div>
+                </div>
+                {% endif %}
+            {% endif %}
+
+            <!-- Modal for AI Counseling Recommendations -->
+            {% if recommendations.sections and recommendations.sections.main %}
+            <div id="mainModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('mainModal')">&times;</span>
+                    <h2 style="color: #667eea; margin-bottom: 20px;"><i class="fas fa-comments"></i> AI Counseling Recommendations</h2>
+                    <div style="text-align: left; max-height: 70vh; overflow-y: auto;">
+                        {% set main_text = recommendations.sections.main %}
+                        {% set main_bullets = main_text.split('•') %}
+                        {% if main_bullets|length < 2 %}
+                            {% set main_bullets = main_text.split('\n') %}
+                        {% endif %}
+                        <ul style="margin: 0; padding-left: 2rem; line-height: 2; color: #333; list-style-type: disc; font-size: 1.05rem;">
+                            {% for b in main_bullets %}
+                                {% if b.strip() %}
+                                <li style="margin-bottom: 10px;">{{ b.strip() }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Modal for Emotional Guidance -->
+            {% if recommendations.sections and recommendations.sections.emotions %}
+            <div id="emotionsModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('emotionsModal')">&times;</span>
+                    <h2 style="color: #f093fb; margin-bottom: 20px;"><i class="fas fa-heart"></i> Emotional Guidance</h2>
+                    <div style="text-align: left; max-height: 70vh; overflow-y: auto;">
+                        {% set emo_text = recommendations.sections.emotions %}
+                        {% set emo_bullets = emo_text.split('•') %}
+                        {% if emo_bullets|length < 2 %}
+                            {% set emo_bullets = emo_text.split('\n') %}
+                        {% endif %}
+                        <ul style="margin: 0; padding-left: 2rem; line-height: 2; color: #333; list-style-type: disc; font-size: 1.05rem;">
+                            {% for b in emo_bullets %}
+                                {% if b.strip() %}
+                                <li style="margin-bottom: 10px;">{{ b.strip() }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Modal for Next Steps Plan -->
+            {% if recommendations.sections and recommendations.sections.next_steps %}
+            <div id="nextStepsModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal('nextStepsModal')">&times;</span>
+                    <h2 style="color: #4ade80; margin-bottom: 20px;"><i class="fas fa-tasks"></i> Next Steps Plan</h2>
+                    <div style="text-align: left; max-height: 70vh; overflow-y: auto;">
+                        {% set next_text = recommendations.sections.next_steps %}
+                        {% set next_bullets = next_text.split('•') %}
+                        {% if next_bullets|length < 2 %}
+                            {% set next_bullets = next_text.split('\n') %}
+                        {% endif %}
+                        <ul style="margin: 0; padding-left: 2rem; line-height: 2; color: #333; list-style-type: disc; font-size: 1.05rem;">
+                            {% for b in next_bullets %}
+                                {% if b.strip() %}
+                                <li style="margin-bottom: 10px;">{{ b.strip() }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
             </div>
             {% endif %}
 
@@ -679,6 +844,25 @@
             updateRecommendedApproaches();
             updateEmotionalPatterns();
         });
+
+        // Modal Functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
     </script>
 </body>
 </html>

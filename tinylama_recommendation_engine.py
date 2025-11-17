@@ -190,6 +190,7 @@ class TinyLlamaRecommendationEngine:
 
         if section == 'main':
             instructions = (
+                "START YOUR RESPONSE WITH: 'As a social worker, '\n\n"
                 "Write ONE extremely detailed, comprehensive paragraph (30–50 sentences) providing COUNSELOR GUIDANCE for real-life counseling advice that thoroughly addresses EVERY aspect of the client's specific situation. "
                 "You are providing guidance to a counselor on how to give insights and advice to their client. Consider ALL of the following client inputs: "
                 f"Current Mood: '{current_mood}' - guide the counselor on strategies for this mood state; "
@@ -211,11 +212,13 @@ class TinyLlamaRecommendationEngine:
                 "15) Sleep improvement plans the counselor can recommend, 16) Social connection building guidance, 17) Goal achievement timelines for the counselor, "
                 "18) Life change adaptation strategies. Focus on providing COUNSELOR GUIDANCE and INSIGHTS for effective counseling. "
                 "STRICT SCOPE: counselor guidance and counseling insights only. Forbid news, articles, books, social media, marketing, technology tips, math/units, or unrelated content. "
-                "No lists, no URLs, professional counseling tone, no diagnoses, no meta commentary."
+                "No lists, no URLs, professional counseling tone, no diagnoses, no meta commentary. "
+                "REMEMBER: Start with 'As a social worker, '"
             )
             title = "AI-GENERATED RECOMMENDATIONS"
         elif section == 'emotions':
             instructions = (
+                "START YOUR RESPONSE WITH: 'As a social worker, '\n\n"
                 "Write ONE extremely comprehensive paragraph (20–35 sentences) providing COUNSELOR GUIDANCE on how to guide the client in their emotional processing and regulation. "
                 f"Consider the client's current mood '{current_mood}', stress level {stress_level}/10, sleep quality {sleep_quality}/10, social support {social_support}/10, "
                 f"emotional state '{emotional_state}', challenges '{challenges}', and life changes '{life_changes}' when providing counselor guidance. "
@@ -229,18 +232,22 @@ class TinyLlamaRecommendationEngine:
                 "17) Mood-specific emotional techniques for the counselor, 18) Building emotional resilience through challenges guidance. "
                 "Focus on providing COUNSELOR GUIDANCE on how to effectively guide the client's emotional journey. "
                 "STRICT SCOPE: counselor guidance for emotional support only; forbid news, articles, social media, marketing, or unrelated ideas. "
-                "No lists, no URLs, professional counseling tone."
+                "No lists, no URLs, professional counseling tone. "
+                "REMEMBER: Start with 'As a social worker, '"
             )
             title = f"EMOTIONAL WELLBEING GUIDANCE (risk: {risk_level}, emotions: {text_emotions})"
         elif section == 'insights':
             instructions = (
+                "START YOUR RESPONSE WITH: 'As a social worker, '\n\n"
                 "Write ONE paragraph (4–7 sentences) that summarizes likely outcomes and possible results in everyday counseling language. "
                 "Explain observed patterns simply, what improvement might look like for this user, and how to track progress (habits/journaling/reflection). "
-                "STRICT SCOPE: counseling-only insights; forbid references to articles, books, social media, or unrelated topics. Be actionable and optimistic; no lists, no URLs."
+                "STRICT SCOPE: counseling-only insights; forbid references to articles, books, social media, or unrelated topics. Be actionable and optimistic; no lists, no URLs. "
+                "REMEMBER: Start with 'As a social worker, '"
             )
             title = f"INSIGHTS SUMMARY (sentiment: {text_sentiment}, success: {success_probability:.0%})"
         else:  # next_steps
             instructions = (
+                "START YOUR RESPONSE WITH: 'As a social worker, '\n\n"
                 "Write ONE extremely detailed, comprehensive paragraph (20–35 sentences) providing COUNSELOR GUIDANCE on what specific steps the client should take, serving as a guideline for the counselor. "
                 f"Consider the client's current mood '{current_mood}', stress level {stress_level}/10, sleep quality {sleep_quality}/10, social support {social_support}/10, "
                 f"emotional state '{emotional_state}', challenges '{challenges}', goals '{goals}', life changes '{life_changes}', and coping mechanisms '{coping_mechanisms}'. "
@@ -254,7 +261,8 @@ class TinyLlamaRecommendationEngine:
                 "15) Sleep improvement activities the counselor can recommend, 16) Social connection activities the counselor can suggest based on the client's support level, "
                 "17) Goal-specific action steps the counselor can help create, 18) Life transition coping activities guidance, 19) Mood-specific coping strategies for the counselor, "
                 "20) Building upon the client's existing coping mechanisms guidance. Focus on providing COUNSELOR GUIDANCE on what steps the client should take. "
-                "STRICT SCOPE: counselor guidance for client action steps only; forbid references to articles, books, social media, marketing, math/units, or unrelated content. No lists, no URLs."
+                "STRICT SCOPE: counselor guidance for client action steps only; forbid references to articles, books, social media, marketing, math/units, or unrelated content. No lists, no URLs. "
+                "REMEMBER: Start with 'As a social worker, '"
             )
             title = f"COPING ACTIVITIES & NEXT STEPS (success probability: {success_probability:.0%})"
 
@@ -269,16 +277,31 @@ class TinyLlamaRecommendationEngine:
     def _postprocess_paragraph(self, text: str) -> str:
         # Collapse whitespace and strip numbering/bullets if any
         text = re.sub(r'\n+', ' ', text)
-        text = re.sub(r'(\d+\.|[-•*])\s+', '', text)
         # remove hashtags/handles and excessive symbols
         text = re.sub(r'[#@]+', '', text)
-        text = re.sub(r'["“”]{2,}', '"', text)
+        text = re.sub(r'["""]{2,}', '"', text)
         text = re.sub(r'[\*_/\\]{2,}', ' ', text)
         text = re.sub(r'\s{2,}', ' ', text).strip()
         # Remove non-counseling/news artifacts
         lower = text.lower()
         if any(x in lower for x in ['published', 'all rights reserved', 'subscribe', 'breaking news', 'http://', 'https://', 'www.', 'share this article', '#image', 'book offers']):
             return ''
+        
+        # Convert paragraph to bullet points by splitting on sentence boundaries
+        # Split into sentences
+        sentences = re.split(r'(?<=[.!?])\s+', text)
+        # Filter out very short sentences and clean each sentence
+        bullets = []
+        for sentence in sentences:
+            sentence = sentence.strip()
+            # Remove existing numbering/bullets
+            sentence = re.sub(r'^(\d+\.|[-•*])\s*', '', sentence)
+            if len(sentence) > 20:  # Keep sentences with meaningful content
+                bullets.append(sentence)
+        
+        # Format as bullet points
+        if bullets:
+            return '\n'.join([f'• {bullet}' for bullet in bullets])
         return text
 
     def _is_valid_paragraph(self, text: str, user_data: Dict) -> bool:
